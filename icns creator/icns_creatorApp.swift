@@ -11,6 +11,7 @@
 //  Update: v3.6.2 on 11.04.2025 - generateCombinedIcns() replaced with safer version
 //                               - Rounded corner preview fixed
 //                               - runShellCommand2() updated. Image generation might be problematic
+//  Copyright © 2024-2025. All rights reserved.
 
 import SwiftUI
 
@@ -47,6 +48,11 @@ class GlobalVariables: ObservableObject {
     @Published var enableRoundedCorners: Bool = true // Toggle state
     @Published var enableIconShadow: Bool = true // Toggle state
     @Published var enablePadding: Bool = true // Toggle state
+    
+    // Color Selection
+    @Published var selectedBackgroundColor: NSColor = NSColor(white: 1.0, alpha: 1.0) // Default: white, transparent
+    @Published var colorOption: String = "custom" // "blue", "graphite", "purple", or "custom"
+    
     
     // Destination Path
     @Published var destinationPath = ""

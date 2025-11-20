@@ -36,7 +36,7 @@ func selectFileFromSystem(g: GlobalVariables) {
     if #available(macOS 12.0, *) {
         openPanel.allowedContentTypes = [.image]
     }else{
-        openPanel.allowedFileTypes = ["jpg", "jpeg", "png", "gif", "psd"]
+        openPanel.allowedFileTypes = ["jpg", "jpeg", "png", "gif"]
     }
     openPanel.canChooseFiles = true
     openPanel.allowsMultipleSelection = false
@@ -97,7 +97,7 @@ func runShellCommand(g: GlobalVariables) {
 
 func processImage(size: Int, scale: Int, escapedImagePath: String, escapedIconPath: String, g: GlobalVariables) {
     
-    guard let roundedImage = createRoundedImage(from: escapedImagePath, size: size, _isRoundCornersEnabled: g.enableRoundedCorners, _enableShadow: g.enableIconShadow, _enablePadding: g.enablePadding) else { return }
+    guard let roundedImage = createRoundedImage(from: escapedImagePath, size: size, _isRoundCornersEnabled: g.enableRoundedCorners, _enableShadow: g.enableIconShadow, _enablePadding: g.enablePadding, g: g) else { return }
 
     guard let tiffData = roundedImage.tiffRepresentation,
           let bitmapRep = NSBitmapImageRep(data: tiffData),
@@ -143,7 +143,7 @@ func runSipsCommand(size: Int, outputPath: String, g: GlobalVariables) throws {
 //-------------------------------------------------------------------------------------------------
 // CREATE ROUNDED CORNERS
 //-------------------------------------------------------------------------------------------------
-func createRoundedImage(from path: String, size: Int, _isRoundCornersEnabled: Bool, _enableShadow: Bool, _enablePadding: Bool) -> NSImage? {
+func createRoundedImage(from path: String, size: Int, _isRoundCornersEnabled: Bool, _enableShadow: Bool, _enablePadding: Bool, g: GlobalVariables) -> NSImage? {
     guard let image = NSImage(contentsOfFile: path) else { return nil }
    // let image = loadImage(named: path)
 
@@ -196,9 +196,14 @@ func createRoundedImage(from path: String, size: Int, _isRoundCornersEnabled: Bo
     // Create a path for the scaled image with rounded corners
     let scaledBezierPath = NSBezierPath(roundedRect: NSRect(x: 0, y: 0, width: scaledSize, height: scaledSize), xRadius: radiusVal, yRadius: radiusVal)
     
+    
     // Clip to the rounded rectangle for the scaled image
     scaledBezierPath.addClip()
-
+    
+    // Fill with blue background (now respects the rounded clip)
+    g.selectedBackgroundColor.setFill()
+    scaledBezierPath.fill()
+    
     // Draw the scaled image centered
     image.draw(in: NSRect(x: 0, y: 0, width: scaledSize, height: scaledSize), from: NSRect.zero, operation: .sourceOver, fraction: 1.0)
 
@@ -257,7 +262,7 @@ func runShellCommand2(res: Int, g: GlobalVariables) {
     var escapedImagePath:String = g.imagePath!
     var escapedImagePath2 = g.destinationPath + "/" + g.selectedImageName
     
-    guard let roundedImage = createRoundedImage(from: escapedImagePath, size: res, _isRoundCornersEnabled: g.enableRoundedCorners, _enableShadow: g.enableIconShadow, _enablePadding: g.enablePadding) else { return }
+    guard let roundedImage = createRoundedImage(from: escapedImagePath, size: res, _isRoundCornersEnabled: g.enableRoundedCorners, _enableShadow: g.enableIconShadow, _enablePadding: g.enablePadding, g: g) else { return }
     
     guard let tiffData = roundedImage.tiffRepresentation,
           let bitmapRep = NSBitmapImageRep(data: tiffData),
@@ -516,10 +521,12 @@ struct CommonView: View {
                                                         .frame(width: ww , height: hh)
                                                         .shadow(radius: g.enableIconShadow ? 10 : 0)
                                                     
-                                                    Image(nsImage: g.selectedImage!)
-                                                        .resizable()
-                                                        .frame(width: ww , height: hh)
-                                                        .cornerRadius(g.enableRoundedCorners ? 27.1 : 0)
+                                    Image(nsImage: g.selectedImage!)
+                                        .resizable()
+                                        .frame(width: ww , height: hh)
+                                        .background(Color(g.selectedBackgroundColor))
+                                        .cornerRadius(g.enableRoundedCorners ? 27.1 : 0)
+                                                        
                                                 }.position(x:localFrame.midX, y: localFrame.maxY)
                                                 
                                             }
@@ -569,9 +576,9 @@ struct CommonView: View {
                                             }
                                         }.position(x:localFrame.midX, y: localFrame.maxY + 20)
                                         
-                                        //-------------------------------------------------------------------------------------
+                                        //-------------------------------------------------------------------------------
                                         // ICON OPTIONS
-                                        //-------------------------------------------------------------------------------------
+                                        //-------------------------------------------------------------------------------
                                         if g.selectedImage != nil {
                                             // Toggle for enabling ROUNDED corners
                                             VStack(alignment: .leading, spacing: 1) {
@@ -624,10 +631,41 @@ struct CommonView: View {
                                                     .scaleEffect(0.7)
                                                     .offset(x:5)
                                                 }
+                                                
+                                                HStack {
+                                                    Text("Set PNG Background Color")
+                                                        .font(.footnote)
+                                                        .foregroundColor(.gray)
+                                                        .offset(y:3)
+                                                    Spacer()
+                                                    
+                                                    
+                                                    // Custom color picker
+                                                    ColorPicker("", selection: Binding(
+                                                        get: { Color(g.selectedBackgroundColor) },
+                                                        set: { newColor in
+                                                            g.colorOption = "custom"
+                                                            // Ensure you handle the optional binding for cgColor safely
+                                                            if let cgColor = newColor.cgColor {
+                                                                g.selectedBackgroundColor = NSColor(cgColor: cgColor) ?? NSColor.white
+                                                            }
+                                                        }
+                                                    ))
+                                                    .labelsHidden() // 1. Hides the empty label spacing
+                                                    .frame(width: 15, height: 15) // 2. MUST be a square for a perfect circle
+                                                    .clipShape(Circle()) // 3. Crops the view into a circle
+                                                    .overlay(Circle().stroke(Color.blue.opacity(1), lineWidth: 1))
+                                                    .offset(x:-10, y:3)
+                                                    .help("Custom background color")
+                                                    
+                                                }
                                             }
+                                            //--------------------------------------------------------------------------
+                                            // Stroke Around Options
+                                            //--------------------------------------------------------------------------
                                             .padding(.all, 12)
                                             //.frame(width: g.win.size.width - 70, height: 300)
-                                            .background(Color.gray.opacity(0.05))
+                                            .background(Color.white.opacity(0.05))
                                             .cornerRadius(10)
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 10)

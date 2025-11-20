@@ -6,7 +6,7 @@
 
 <p align="center">
 Download the app from <a href="https://github.com/alptugan/icns-creator/releases/latest">Releases</a><br>
-(Requires minimum Mac OS 11.0 - 15.6.1).<br>
+(Requires minimum Mac OS 11.0 - 15.7.2).<br>
 <strong style="color:#ff9900">⚠️ PLEASE FOLLOW "Installation" instructions ⚠️</strong>
 </p>
 
@@ -175,20 +175,18 @@ If you have any questions, suggestions, or feedback, please feel free to use Iss
 - [x] ~~Add preview for changed options~~
 - [x] ~~Destination path dialog~~
 - [x] ~~File name issue. When there is blank space in filename, the process fails. `code solid.svg` - failed. `code-solid.svg` - success.~~
-- [ ] ‼️ Set options for rounded corners: None, Rounded, Circular, Tahoe OS
-- [ ] ‼️ Lights around the app icon. Angle
-- [ ] ‼️ Fill the background with a color or a pattern.
-- [ ] ‼️ Set color for the background.
-- [ ] ‼️ Set the size of the imported icon.
-- [ ] ‼️ Set the position of the imported icon.
-- [ ] ‼️ Display the icon grid similart to icon designer.
-- [ ] ‼️ Update YouTube video tutotial.
+- [x] ~~‼️ Fill the background with a color or a pattern.~~
+- [ ] ‼️ Lights around the app icon. Angle (Tahoe).
+- [ ] ‼️ Set the size of the imported icon (Tahoe).
+- [ ] ‼️ Display the icon grid similart to icon designer (Tahoe).
 - [ ] v4
     - [ ] Drag & drop folders or apps to edit their icns props on the fly for better UX. 
     - [ ] Set the icons using the app.
     - [ ] Return to original icon option.
     - [ ] Keep the original icon in the original app directory.
+    - [ ] Update YouTube video tutotial.
 - [ ] Optional: A workaround for testing, and permissions. Test the app on a fresh Mac.
 - [ ] Optional: Distrubute image conversion process into different CPU threads. It is a possible fix to avoid locking main thread during the icns creation process.
 - [ ] Optional: Distrubute through Homebrew or any other package manager.
 - [ ] Optional: Apple Codesign issues! (Will exist forever because of Apple's buggy developer registration process) 
+- [ ] Optional: Set options for rounded corners: None, Rounded, Circular, Tahoe OS
