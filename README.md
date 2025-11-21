@@ -178,13 +178,13 @@ If you have any questions, suggestions, or feedback, please feel free to use Iss
 - [x] ~~‼️ Fill the background with a color or a pattern.~~
 - [ ] ‼️ Lights around the app icon. Angle (Tahoe).
 - [ ] ‼️ Set the size of the imported icon (Tahoe).
-- [ ] ‼️ Display the icon grid similart to icon designer (Tahoe).
+- [ ] ‼️ Display the icon grid similar to icon designer (Tahoe).
 - [ ] v4
     - [ ] Drag & drop folders or apps to edit their icns props on the fly for better UX. 
     - [ ] Set the icons using the app.
     - [ ] Return to original icon option.
     - [ ] Keep the original icon in the original app directory.
-    - [ ] Update YouTube video tutotial.
+    - [ ] Update YouTube video tutorial.
 - [ ] Optional: A workaround for testing, and permissions. Test the app on a fresh Mac.
 - [ ] Optional: Distrubute image conversion process into different CPU threads. It is a possible fix to avoid locking main thread during the icns creation process.
 - [ ] Optional: Distrubute through Homebrew or any other package manager.
