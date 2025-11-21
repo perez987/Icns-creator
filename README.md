@@ -10,7 +10,7 @@ Download the app from <a href="https://github.com/alptugan/icns-creator/releases
 <strong style="color:#ff9900">⚠️ PLEASE FOLLOW "Installation" instructions ⚠️</strong>
 </p>
 
-<img src="assets/icns_creator_v3_cover.jpg" alt="Image shows the three different screen shots of the main app window." width="100%" height="auto" style="border-radius:15px;">
+<img src="assets/icns_creator_v3.7_cover.jpg" alt="Image shows the three different screen shots of the main app window." width="100%" height="auto" style="border-radius:15px;">
 
 <p style="margin-top:20px" align="center">
 <img src="./assets/logo.png" width="10%">
@@ -22,8 +22,9 @@ Download the app from <a href="https://github.com/alptugan/icns-creator/releases
 
 The UI is a lot different with the v1. The following video is still appropriate. icns Creator is a macOS application that allows you to easily create icns files from any PNG or JPG image file. With this tool, you can quickly generate high-quality icns files to use as icons for your macOS applications or generate a single appropriate .iconset file. Codesigning is an headache for me! And I do not want to pay for an app that I release as open-source. You can review the code, if you have concerns about the app. Or simply, you can choose not to use the app 🖖🏻.
 
-[<img src="icns%20creator/yt_cover_2.png" width="100%">](https://youtu.be/nwUu_3UDWjM "Now in Mac OS")
-
+<p style="margin-top:30px" align="center">
+<img src="assets/icns-creator-3.7.1.gif">
+</p>
 
 <br/>
 <p align="center"> ⁂ </p>
@@ -176,6 +177,7 @@ If you have any questions, suggestions, or feedback, please feel free to use Iss
 - [x] ~~Destination path dialog~~
 - [x] ~~File name issue. When there is blank space in filename, the process fails. `code solid.svg` - failed. `code-solid.svg` - success.~~
 - [x] ~~‼️ Fill the background with a color or a pattern.~~
+- [ ] Quit app when clicked close button.
 - [ ] ‼️ Lights around the app icon. Angle (Tahoe).
 - [ ] ‼️ Set the size of the imported icon (Tahoe).
 - [ ] ‼️ Display the icon grid similar to icon designer (Tahoe).
