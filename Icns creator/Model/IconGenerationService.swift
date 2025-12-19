@@ -114,7 +114,7 @@ func runShellCommand2(res: Int, g: GlobalVariables) {
     let outputPath = "\(String(describing:escapedImagePath2 ))_\(String(res))x\(String(res)).png"
     
     escapedImagePath = outputPath.replacingOccurrences(of: " ", with: "\\ ")
-    escapedImagePath2 = outputPath.replacingOccurrences(of: ".\\w+$", with: "", options: .regularExpression).replacingOccurrences(of: " ", with: "\\ ")
+    escapedImagePath2 = escapedImagePath2.replacingOccurrences(of: " ", with: "\\ ")
     
     
     do {
