@@ -11,7 +11,7 @@ Download the app from <a href="https://github.com/perez987/Icns-creator/releases
 <strong style="color:#ff9900">⚠️ PLEASE FOLLOW "Installation" instructions ⚠️</strong>
 </p>
 
-<img src="Assets/icns_creator_v3.7_cover.jpg" alt="Image shows the three different screen shots of the main app window." width="100%" height="auto" style="border-radius:15px;">
+<img src="Assets/Window.png" alt="Image shows the three different screen shots of the main app window." width="800px" height="auto" style="border-radius:15px;">
 
 <p style="margin-top:20px" align="center">
 <img src="./Assets/logo.png" width="10%">
