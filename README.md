@@ -8,7 +8,7 @@
 
 <p align="center">
 Download the app from <a href="https://github.com/perez987/Icns-creator/releases/latest">Releases</a><br>
-(Requires minimum macOS 11.0 - up to 26.2).<br>
+(Requires minimum macOS 11.0 - up to 26.0).<br>
 </p>
 
 <img src="Assets/Window.png" alt="Image shows the three different screen shots of the main app window." width="800px" height="auto" style="border-radius:15px;">
