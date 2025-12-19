@@ -66,8 +66,6 @@ How to fix this?
 
 > Disabling Gatekeeper globally to run a single application is not a valid recommendation.
 
-<p align="center"> ⁂ </p>
-
 ### Option 2: Without disabling Gatekeeper
 
 #### 1.- System Settings >> Security and Privacy
@@ -107,8 +105,6 @@ Xattr Editor is a simple GUI application to view/edit extended file attributes o
 #### 4.- Result
 
 Either way, disabling Gatekeeper, System Settings, “xattr”or  Xattr Editor, from this point on, the downloaded app will run without security prompts because the `com.apple.quarantine` attribute has been removed.
-
-<p align="center"> ⁂ </p>
 
 ### Option 3 (For developers)
 
