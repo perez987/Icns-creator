@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings (Spanish)
+  Icns creator
+*/
+
+/* Tab Labels */
+".iconset" = ".iconset";
+".icns" = ".icns";
+
+/* Main UI */
+"drag_image_text" = "Arrastra tu imagen aquí o ";
+"browse_button" = "Examinar";
+
+/* Options Section */
+"options_title" = "Opciones";
+"enable_rounded_corners" = "Habilitar Esquinas Redondeadas";
+"enable_subtle_shadow" = "Habilitar Sombra Sutil";
+"enable_original_padding" = "Habilitar Margen Original";
+"set_background_color" = "Establecer Color de Fondo PNG";
+
+/* Generate Buttons */
+"generate_iconset" = "Generar .iconset";
+"generate_icns" = "Generar .icns";
+
+/* Toggle Labels */
+"all" = "Todos";
+"size_16" = "16x16";
+"size_32" = "32x32";
+"size_64" = "64x64";
+"size_128" = "128x128";
+"size_256" = "256x256";
+"size_512" = "512x512";
+"size_1024" = "1024x1024";
+
+/* File Dialog */
+"choose_destination_title" = "Elegir Destino";
+"choose_destination_message" = "Selecciona una carpeta para guardar el .iconset";
+"choose_button" = "Elegir";
+
+/* Error Messages */
+"failed_to_get_location" = "No se pudo obtener la ubicación del archivo";
