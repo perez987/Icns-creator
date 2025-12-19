@@ -1,21 +1,17 @@
 <h1 align="center">Icns Creator</h1>
 
-<p align="center">A native Mac OS app that converts images to `.iconset` or `.icns` icon files.</p>
-<!--p align="center">﹏﹏ ‿︵ ﹏﹏</p-->
+<p style="margin-top:20px" align="center">
+<img src="./Assets/logo.png" width="10%">
+</p>
 
-<p align="center">・・・・・・・・・・ ༄ ・・・・・・・・・・</p> 
+<p align="center">A native Mac OS app that converts images to `.iconset` or `.icns` icon files.</p>
 
 <p align="center">
 Download the app from <a href="https://github.com/perez987/Icns-creator/releases/latest">Releases</a><br>
 (Requires minimum Mac OS 11.0 - 26.2).<br>
-<strong style="color:#ff9900">⚠️ PLEASE FOLLOW "Installation" instructions ⚠️</strong>
 </p>
 
 <img src="Assets/Window.png" alt="Image shows the three different screen shots of the main app window." width="800px" height="auto" style="border-radius:15px;">
-
-<p style="margin-top:20px" align="center">
-<img src="./Assets/logo.png" width="10%">
-</p>
 
 ## Instructions & QuickStart
 
