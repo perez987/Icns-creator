@@ -169,7 +169,7 @@ Contributions to Icns Creator are welcome! If you would like to contribute to th
 <p align="center"> ⁂ </p>
 
 ## License
-Iicns Creator is released under the [MIT License](https://opensource.org/licenses/MIT). See the [LICENSE](https://github.com/alptugan/icns-creator/blob/main/LICENSE.md) file for more information.
+Icns Creator is released under the MIT License. See the [LICENSE](https://github.com/perez987/icns-creator/blob/main/LICENSE.md) file for more information.
 
 <p align="center"> ⁂ </p>
 
@@ -188,9 +188,9 @@ If you have any questions, suggestions, or feedback, please feel free to use Iss
 ## To do
 
 - [x] ~~App release~~
-- [x] ~~Make it compatible with min Mac OS 11.0~~
+- [x] ~~Make it compatible with min macOS 11.0~~
+- [x] ~~Make it compatible with max macOS 26~~
 - [x] ~~Drag & drop design files onto the app window~~
-- [x] ~~Release major v2~~
 - [x] ~~Add feature to export icons with rounded-corners~~ 
 - [x] ~~Add feature to export icons with padding depending on Apple design standards~~
 - [x] ~~Add feature to export icons with shadow option~~ 
@@ -204,20 +204,7 @@ If you have any questions, suggestions, or feedback, please feel free to use Iss
 - [x] ~~Add preview for changed options~~
 - [x] ~~Destination path dialog~~
 - [x] ~~File name issue. When there is blank space in filename, the process fails. `code solid.svg` - failed. `code-solid.svg` - success~~
-- [x] ~~‼️ Fill the background with a color or a pattern~~
+- [x] ~~Fill the background with a color or a pattern~~
 - [x] ~~Quit app when clicked close button~~
 - [x] ~~Support for macOS Tahoe~~
-- [ ] ‼️ Lights around the app icon. Angle (Tahoe)
-- [ ] ‼️ Set the size of the imported icon (Tahoe)
-- [ ] ‼️ Display the icon grid similar to icon designer (Tahoe)
-- [ ] v4
-    - [ ] Drag & drop folders or apps to edit their icns props on the fly for better UX
-    - [ ] Set the icons using the app
-    - [ ] Return to original icon option
-    - [ ] Keep the original icon in the original app directory
-    - [ ] Update YouTube video tutorial
-- [ ] Optional: A workaround for testing, and permissions. Test the app on a fresh Mac
-- [ ] Optional: Distribute image conversion process into different CPU threads. It is a possible fix to avoid locking main thread during the icns creation process
-- [ ] Optional: Distribute through Homebrew or any other package manager
-- [ ] Optional: Apple Codesign issues! (Will exist forever because of Apple's buggy developer registration process) 
 - [ ] Optional: Set options for rounded corners: None, Rounded, Circular, Tahoe OS.
