@@ -43,13 +43,13 @@ class GlobalVariables: ObservableObject {
     @Published var winSize: CGSize = .zero
     
     @Published var dragAreaPos : CGPoint = .zero
-    @Published var isToggled_All = true
-    @Published var isToggled_16 = true
-    @Published var isToggled_32 = true
-    @Published var isToggled_64 = true
-    @Published var isToggled_128 = true
-    @Published var isToggled_256 = true
-    @Published var isToggled_512 = true
+    @Published var isToggled_All = false
+    @Published var isToggled_16 = false
+    @Published var isToggled_32 = false
+    @Published var isToggled_64 = false
+    @Published var isToggled_128 = false
+    @Published var isToggled_256 = false
+    @Published var isToggled_512 = false
     @Published var isToggled_1024 = true
     @Published var imagePath: String?
     @Published var imgW: CGFloat = 150
