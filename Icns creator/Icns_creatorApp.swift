@@ -13,6 +13,8 @@
 //                               - runShellCommand2() updated. Image generation might be problematic
 //  Copyright © 2024-2025. All rights reserved.
 //  Update perez987: v3.8.0 on 16/12/2025 - quit app when closing window from red button
+//  Update perez987: v3.8.1 on 19/12/2025 - fix Cmd+N new window state inheritance issue
+//  Update perez987: v3.8.2 on 19/12/2025 - fix Cmd+N new windows opening as tabs instead of separate windows
 
 import SwiftUI
 import AppKit
@@ -20,6 +22,13 @@ import AppKit
 // AppDelegate to handle window closing behavior
 // This ensures the application quits when the user closes the window using the red close button
 class AppDelegate: NSObject, NSApplicationDelegate {
+    // Called when the application finishes launching
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        // Disable automatic window tabbing to ensure new windows open as separate windows
+        // rather than tabs of existing windows
+        NSWindow.allowsAutomaticWindowTabbing = false
+    }
+    
     // Called when the last window is closed to determine if the app should terminate
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
@@ -70,31 +79,37 @@ class GlobalVariables: ObservableObject {
 }
 
 
+// Window dimension constants
+private let kDefaultWindowWidth: CGFloat = 350
+private let kDefaultWindowHeight: CGFloat = 320
+
+// Wrapper view to ensure each window gets its own GlobalVariables instance
+// This is crucial for Cmd+N (New Window) behavior - each new window should start
+// with a fresh state (no image loaded) rather than inheriting the state from existing windows
+struct RootView: View {
+    @StateObject private var globalVariables = GlobalVariables()
+    
+    var body: some View {
+        ContentView()
+            .frame(minWidth: kDefaultWindowWidth, maxWidth: kDefaultWindowWidth, minHeight: kDefaultWindowHeight)
+            .environmentObject(globalVariables)
+            .onAppear {
+                DispatchQueue.main.async {
+                    resizeWindow(g: globalVariables, to: CGSize(width: kDefaultWindowWidth, height: kDefaultWindowHeight))
+                }
+            }
+    }
+}
+
 @main
 struct icns_creatorApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @StateObject private var globalVariables = GlobalVariables() // Instantiate the GlobalVariables object as a state object
 
     var body: some Scene {
-        let w:CGFloat = 350
-        let h:CGFloat = 320
-        
         WindowGroup {
-            
-            
-            ContentView()
-                .frame(minWidth: w,maxWidth: w,minHeight: h)
-                .environmentObject(globalVariables)
-                .onAppear {
-
-                    DispatchQueue.main.async {
-                        resizeWindow(g:globalVariables,to: CGSize(width: w, height: h))
-                        
-                    }
-                }
-                 
+            RootView()
         }
-        .defaultWindowSize(CGSize(width: w, height: h))
+        .defaultWindowSize(CGSize(width: kDefaultWindowWidth, height: kDefaultWindowHeight))
         //.defaultPosition(.center)
         //.windowResizabilityContentSize()
         .windowStyle(HiddenTitleBarWindowStyle())
