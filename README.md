@@ -135,9 +135,10 @@ To build the app by yourself or make modifications on the source code (Optional)
 2. Save the image file as a PNG or JPG file in a 1:1 aspect ratio for the best results.
 3. Open the Icns Creator application.
 4. Click the `Browse` button or drag & drop the image.
-5. `.iconset` tab creates a single icon file, or `.icns` tab creates individual .icns files required for html pages.
-6. By default shadow, rounded corners and padding for the generated icon is enabled. For recent Mac OS standards, you should enable all of the options to apply Apple Design standards. If you just want to generate .icns files as before, disable all of the options.
-7. The files will be created in the same directory as the original image file.
+5. The `.iconset` tab creates a single icon file (1024x1024) and a folder containing PNG files required by Xcode (`Assets.xcassets/AppIcon.appiconset`)
+6. The `.icns` tab creates individual .icns files in the previously selected sizes.
+7. By default shadow, rounded corners and padding for the generated icon is enabled. For recent Mac OS standards, you should enable all of the options to apply Apple Design standards. If you just want to generate .icns files as before, disable all of the options.
+8. The files will be created in the same directory as the original image file.
 
 <p align="center"> ⁂ </p>
 
