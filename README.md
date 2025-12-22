@@ -198,5 +198,5 @@ If you have any questions, suggestions, or feedback, please feel free to use Iss
 - [x] ~~File name issue. When there is blank space in filename, the process fails. `code solid.svg` - failed. `code-solid.svg` - success~~
 - [x] ~~Fill the background with a color or a pattern~~
 - [x] ~~Quit app when clicked close button~~
-- [x] ~~Support for macOS Tahoe~~
-- [ ] Optional: Set options for rounded corners: None, Rounded, Circular, Tahoe OS.
+- [x] ~~Disable automatic window tabbing for Cmd+N~~
+- [x] ~~Fix Cmd+N to open fresh window instead of inheriting state~~
