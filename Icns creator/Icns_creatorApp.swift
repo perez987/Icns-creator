@@ -76,6 +76,15 @@ class GlobalVariables: ObservableObject {
     // Destination Path
     @Published var destinationPath = ""
     @Published var selectedImageName = ""
+    
+    // Computed property to get the default directory for saving files
+     var defaultSaveDirectory: URL {
+         if let imagePath = imagePath {
+             return URL(fileURLWithPath: imagePath).deletingLastPathComponent()
+         } else {
+             return URL(fileURLWithPath: NSHomeDirectory())
+         }
+     }
 }
 
 

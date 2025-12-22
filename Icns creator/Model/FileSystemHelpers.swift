@@ -67,6 +67,6 @@ func createOpenPanel(defaultDirectory: URL? = nil) -> NSOpenPanel {
     if let defaultDirectory = defaultDirectory {
         openPanel.directoryURL = defaultDirectory // Set default directory
     }
-    
+        
     return openPanel
 }

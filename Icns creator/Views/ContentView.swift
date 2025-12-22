@@ -337,7 +337,8 @@ struct GenerateView_ICONSET: View {
                 Spacer(minLength: 220)
                 HStack {
                     Button(NSLocalizedString("generate_iconset", comment: "")) {
-                        let openPanel = createOpenPanel(defaultDirectory: URL(fileURLWithPath: NSHomeDirectory()))
+//                        let openPanel = createOpenPanel(defaultDirectory: URL(fileURLWithPath: NSHomeDirectory()))
+                        let openPanel = createOpenPanel(defaultDirectory: g.defaultSaveDirectory)
 
                         // Show the panel and handle the user's selection
                         openPanel.begin { response in
@@ -414,7 +415,8 @@ struct GenerateView_ICNS: View {
 
                 HStack {
                     Button(NSLocalizedString("generate_icns", comment: "")) {
-                        let openPanel = createOpenPanel(defaultDirectory: URL(fileURLWithPath: NSHomeDirectory()))
+//                        let openPanel = createOpenPanel(defaultDirectory: URL(fileURLWithPath: NSHomeDirectory()))
+                        let openPanel = createOpenPanel(defaultDirectory: g.defaultSaveDirectory)
                         
                         // Show the panel and handle the user's selection
                         openPanel.begin { response in
