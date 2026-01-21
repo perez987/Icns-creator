@@ -4,7 +4,7 @@
 <img src="./Assets/logo.png" width="10%">
 </p>
 
-<p align="center">A native Mac OS app that converts images to `.iconset` or `.icns` icon files.</p>
+<p align="center">A native macOS app that converts images to `.iconset` or `.icns` icon files.</p>
 
 <p align="center">
 Download the app from <a href="https://github.com/perez987/Icns-creator/releases/latest">Releases</a><br>
@@ -13,11 +13,36 @@ Download the app from <a href="https://github.com/perez987/Icns-creator/releases
 
 <img src="Assets/Window.png" alt="Image shows the three different screen shots of the main app window." width="800px" height="auto" style="border-radius:15px;">
 
-## Instructions & QuickStart
+## QuickStart
 
-The UI is a lot different with the v1. Icns Creator is a macOS application that allows you to easily create icns or icons files from any PNG or JPG image file. With this tool, you can quickly generate high-quality icns files to use as icons for your macOS applications or generate a single appropriate .iconset file.
+Icns Creator is a macOS application that allows you to easily create icns or icons files from any PNG or JPG image file. With this tool, you can quickly generate high-quality icns files to use as icons for your macOS applications or generate a single appropriate .iconset file to be easily included in Xcode projects.
 
-Codesigning is a headache for me! And I do not want to pay for an app that I release as open-source. You can review the code, if you have concerns about the app. Or simply, you can choose not to use the app 🖖🏻.
+<p align="center"> ⁂ </p>
+
+## Credits
+
+The original repository [icns-creator](https://github.com/alptugan/icns-creator) was created by *Alp Tuğan*, and the core code comes from there.
+
+<p align="center"> ⁂ </p>
+
+## Changelog
+
+These are the changes I've made in this fork:
+
+- Add `AppDelegate` to quit app when window closes
+- Add localization System: English (default) and Spanish
+- Succesfully checked on macOS Tahoe
+- Refactor `ContentView.swift` into domain modules: reduced `ContentView.swift` from 889→468 lines by extracting:
+  - `IconGenerationService.swift`: `runShellCommand`, `processImage`, `runSipsCommand`, `generateCombinedIcns`
+  - `ImageProcessing.swift`: `createRoundedImage`, image manipulation, format conversion
+  - `FileSystemHelpers.swift`: `NSOpenPanel` extension, file dialogs, path operations
+  - `WindowHelpers.swift`: `resizeWindow` utility
+- Fix window sizing for new windows opened via Cmd+N
+- Fix overlapping UI elements and adjusting spacing (the generate buttons and icon size checkboxes were overlapping with the Options group)
+- Fix duplicated size in .icns names
+- Updated the app to ensure Cmd+N opens new windows with independent state, preventing state inheritance between windows
+- Disabled automatic window tabbing so new windows open separately instead of as tabs
+- Use dropped image directory as default save location. Dialog still allows navigation to any destination; this only sets the initial location.
 
 <p align="center"> ⁂ </p>
 
@@ -31,7 +56,7 @@ Codesigning is a headache for me! And I do not want to pay for an app that I rel
 
 <p align="center"> ⁂ </p>
 
-## Installation
+## Security warning when opening the app
 
 The conditions Apple imposes to maintain user security and privacy are becoming increasingly strict. This, of course, benefits users but it has drawbacks.
 
@@ -44,6 +69,14 @@ But in Sequoia and Tahoe, the warning is more serious and might upset the user. 
 Or this one:
 <br>`Could not verify that Download Full Installer does not contain malicious software.`<br>
 With the recommendation in both cases to move the file to the Trash.
+
+This is the warning that appears when the app is not digitally signed or notarized by Apple; in which case, the warning is more benign, reminiscent of the pre-Sequoia versions.
+
+Currently, an Apple Developer account is required to digitally sign or notarize Mac applications. However, many developers don't want to register with the Apple Developer Program, either because of the cost or because they develop small apps that are distributed for free.
+
+This is the case with many of the apps we publish as amateurs, signed ad-hoc and not notarized. Although the source code for these types of applications is usually available and can be explored to determine if there are conditions that weaken security, this warning may raise some suspicions. 
+
+Users who have Gatekeeper disabled will not see this warning. However, disabling Gatekeeper globally to run a single application is not a valid recommendation.
 
 How to fix this?
 
@@ -70,11 +103,11 @@ How to fix this?
 
 #### 1.- System Settings >> Security and Privacy
 
-First, go to `Privacy & Security` to see if there's a message about blocking the downloaded application with `Open Anyway `option. This is the easiest way to fix it.
-
-![Warning](Assets/xattr2.png)
+First, go to `Privacy & Security` to see if there's a message about blocking the downloaded application with `Open Anyway `option. 
 
 By clicking `Open Anyway`, macOS will ask again if you want to open the file and, if you answer yes, it will ask for the user password and open it.
+
+This is the easiest way to fix it.
 
 #### 2.- xattr command line tool
 
@@ -110,24 +143,37 @@ Either way, disabling Gatekeeper, System Settings, “xattr”or  Xattr Editor, 
 
 To build the app by yourself or make modifications on the source code (Optional). If you have issues because of Apple's security issues, or you do not prefer to install compiled apps, you can compile the app by yourself and review the code as well.
 
-1. Install XCode application from Appstore.
-2. Download or clone the repository.<br>
-<p style="margin-bottom:20px" align="center">
-    <img src="./Assets/icns_dev_tut1.jpeg" width="80%">
-</p>
-3. Unzip the folder and Double-click `Icns creator.xcodeproj` file to open it in XCode.
-<p style="margin-bottom:20px" align="center">
-    <img src="./Assets/icns_dev_tut2.jpeg" width="80%">
-</p>
-4. Hit `Run` button to compile the project.
-<p style="margin-bottom:20px" align="center">
-    <img src="./Assets/icns_dev_tut3.jpeg" width="80%">
-</p>
-5. If everything goes well hopefully, you can find the app under the XCode's Product menu.<br>
-<p style="margin-bottom:20px" align="center">
-    <img src="./Assets/icns_dev_tut4.png" width="80%">
-</p>
-<p align="center"> ⁂ </p>
+Note: You don't need to remove the `com.apple.quarantine` attribute if you download the source code, compile the app with Xcode, and save the product for regular use. When you compile an app in Xcode and set it to Sign to Run Locally, Xcode signs it with a trusted local certificate so the system can run it. If `Hardened Runtime` is disabled, the app doesn't need Apple's certification and will continue to function normally on your Mac. That's why you don't see the security warning.
+
+#### Get the Code
+
+Clone the repository:
+
+```bash
+git clone https://github.com/perez987/Icns-creator.git
+cd Icns-creator
+```
+
+#### Using Xcode
+
+1. Open the project with Xcode
+2. Select your Mac as the run destination
+3. Press `Cmd+R` to build and run the app
+
+#### Building from Command Line
+
+1. Open Terminal
+2. Navigate to the project directory
+3. Build the project:
+ 
+   ```bash
+   swift build -c release
+   ```
+4. Run the application:
+ 
+   ```bash
+   .build/release/Icns-creator
+   ```
 
 ## Usage for Designers & Developers
 
@@ -147,7 +193,7 @@ To build the app by yourself or make modifications on the source code (Optional)
 Contributions to Icns Creator are welcome! If you would like to contribute to the project, please follow these steps:
 
 1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
+2. Create a new branch for your feature or bug fix (optional).
 3. Make your changes and commit them with descriptive commit messages.
 4. Do not delete commented codes please 😉.
 4. Push your changes to your forked repository.
@@ -162,6 +208,7 @@ Contributions to Icns Creator are welcome! If you would like to contribute to th
 <p align="center"> ⁂ </p>
 
 ## License
+
 Icns Creator is released under the MIT License. See the [LICENSE](https://github.com/perez987/icns-creator/blob/main/LICENSE.md) file for more information.
 
 <p align="center"> ⁂ </p>
