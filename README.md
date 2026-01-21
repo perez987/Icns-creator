@@ -1,5 +1,12 @@
 <h1 align="center">Icns Creator</h1>
 
+![Swift](https://img.shields.io/badge/Swift-5+-lavender.svg)
+![Platform](https://img.shields.io/badge/macOS-11+-orange.svg)
+
+<a href="README-ES.md">
+    <img src="https://img.shields.io/badge/Spanish-README-blue" alt=“Spanish README Docs”>
+</a><br><br>
+
 <p style="margin-top:20px" align="center">
 <img src="./Assets/logo.png" width="10%">
 </p>
@@ -8,7 +15,7 @@
 
 <p align="center">
 Download the app from <a href="https://github.com/perez987/Icns-creator/releases/latest">Releases</a><br>
-(Requires minimum macOS 11.0 - up to 26.0).<br>
+(Supports macOS 11 up to macOS26).<br>
 </p>
 
 <img src="Assets/Window.png" alt="Image shows the three different screen shots of the main app window." width="800px" height="auto" style="border-radius:15px;">
@@ -17,13 +24,9 @@ Download the app from <a href="https://github.com/perez987/Icns-creator/releases
 
 Icns Creator is a macOS application that allows you to easily create icns or icons files from any PNG or JPG image file. With this tool, you can quickly generate high-quality icns files to use as icons for your macOS applications or generate a single appropriate .iconset file to be easily included in Xcode projects.
 
-<p align="center"> ⁂ </p>
-
 ## Credits
 
 The original repository [icns-creator](https://github.com/alptugan/icns-creator) was created by *Alp Tuğan*, and the core code comes from here.
-
-<p align="center"> ⁂ </p>
 
 ## Changelog
 
@@ -44,8 +47,6 @@ These are the changes I've made in this fork:
 - Disabled automatic window tabbing so new windows open separately instead of as tabs
 - Use dropped image directory as default save location. Dialog still allows navigation to any destination; this only sets the initial location.
 
-<p align="center"> ⁂ </p>
-
 ## Features
 
 - Simple and intuitive user interface.
@@ -53,8 +54,6 @@ These are the changes I've made in this fork:
 - Automatic generation of icns files in variable sizes.
 - iconset folder and individual .icns file generation.
 - Options to set icon style for Apple design standarts (subtle shadow, corner radius, icon margin area).
-
-<p align="center"> ⁂ </p>
 
 ## Security warning when opening the app
 
@@ -133,7 +132,7 @@ This is the easiest way to fix it.
 
 #### 3.- Xattr Editor
 
-Xattr Editor is a simple GUI application to view/edit extended file attributes on macOS, it has their own [repository](https://github.com/perez987/Xattr-Editor).
+Xattr Editor is a simple GUI application to view/edit extended file attributes on macOS, it has their own [repository](https://github.com/perez987/Xattr-Editor/blob/master/README.md).
 
 #### 4.- Result
 
@@ -186,8 +185,6 @@ cd Icns-creator
 7. By default shadow, rounded corners and padding for the generated icon is enabled. For recent Mac OS standards, you should enable all of the options to apply Apple Design standards. If you just want to generate .icns files as before, disable all of the options.
 8. The files will be created in the same directory as the original image file.
 
-<p align="center"> ⁂ </p>
-
 ## Contribution
 
 Contributions to Icns Creator are welcome! If you would like to contribute to the project, please follow these steps:
@@ -199,25 +196,17 @@ Contributions to Icns Creator are welcome! If you would like to contribute to th
 4. Push your changes to your forked repository.
 5. Open a pull request in the main repository, explaining your changes and their benefits.
 
-<p align="center"> ⁂ </p>
-
 ## License
 
 Icns Creator is released under the MIT License. See the [LICENSE](https://github.com/perez987/icns-creator/blob/main/LICENSE.md) file for more information.
-
-<p align="center"> ⁂ </p>
 
 ## Acknowledgements
 
 - The Icns Creator app was inspired by the need for a simple and efficient tool to create icns and icons files for macOS applications. 
 
-<p align="center"> ⁂ </p>
-
 ## Contact
 
 If you have any questions, suggestions, or feedback, please feel free to use Issues section.
-
-<p align="center"> ⁂ </p>
 
 ## To do
 
