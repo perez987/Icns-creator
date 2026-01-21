@@ -21,7 +21,7 @@ Icns Creator is a macOS application that allows you to easily create icns or ico
 
 ## Credits
 
-The original repository [icns-creator](https://github.com/alptugan/icns-creator) was created by *Alp Tuğan*, and the core code comes from there.
+The original repository [icns-creator](https://github.com/alptugan/icns-creator) was created by *Alp Tuğan*, and the core code comes from here.
 
 <p align="center"> ⁂ </p>
 
@@ -198,12 +198,6 @@ Contributions to Icns Creator are welcome! If you would like to contribute to th
 4. Do not delete commented codes please 😉.
 4. Push your changes to your forked repository.
 5. Open a pull request in the main repository, explaining your changes and their benefits.
-
-<p align="center"> ⁂ </p>
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=alptugan/icns-creator&type=Date)](https://star-history.com/#alptugan/icns-creator&Date)
 
 <p align="center"> ⁂ </p>
 
