@@ -30,14 +30,14 @@ Icns Creator es una aplicación de macOS que te permite crear fácilmente archiv
 
 Es la inspiración y el nombre de mi aplicación, mientras que nuestra implementación tomó una dirección diferente:
 
-- Reescritura de código importante: refactorización de ContentView.swift en módulos de dominio:
+- Reescritura de código importante: refactorización de `ContentView.swift` en módulos de dominio:
 	- Modelo:
-		- IconGenerationService.swift
-		- ImageProcessing.swift
-		- FileSystemHelpers.swift
-		- WindowHelpers.swift
+		- `IconGenerationService.swift`
+		-` ImageProcessing.swift`
+		- `FileSystemHelpers.swift`
+		- `WindowHelpers.swift`
 	- Vistas:
-		- ContentView.swift
+		- `ContentView.swift`
 - Nuevo AppIcon
 - Interfaz de usuario revisada, incluyendo la funcionalidad de idiomas (inglés, español).
 

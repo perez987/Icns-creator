@@ -28,15 +28,15 @@ Icns Creator is a macOS application that allows you to easily create icns or ico
  
  It's the inspiration and the name for my app, while our implementation took a different direction:
  
- - A major rewrite: refactor ContentView.swift into domain modules:
+ - A major rewrite: refactor `ContentView.swift` into domain modules:
 	 - Model:
-		 - IconGenerationService.swift
-		 - ImageProcessing.swift
-		 - FileSystemHelpers.swift
-		 - WindowHelpers.swift
+		 - `IconGenerationService.swift`
+		 - `ImageProcessing.swift`
+		 - `FileSystemHelpers.swift`
+		 - `WindowHelpers.swift`
 	 - Views:
-	 	- ContentView.swift
- - A new logo
+	 	- `ContentView.swift`
+ - A new AppIcon
  - Revised user interface including languages functionality (English, Spanish).
  
 ## Changelog
