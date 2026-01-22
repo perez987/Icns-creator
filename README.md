@@ -24,7 +24,20 @@ Icns Creator is a macOS application that allows you to easily create icns or ico
 
 ## Credits
 
- *Alp Tuğan* is the creator of the source repository [icns-creator](https://github.com/alptugan/icns-creator). The main code comes from there. It's the inspiration and name for the application, while our implementation took a different direction with a major rewrite, a new logo, and a revised and improved user interface including languages functionality.
+ *Alp Tuğan* is the creator of the source repository [icns-creator](https://github.com/alptugan/icns-creator). The main code comes from there.
+ 
+ It's the inspiration and the name for my app, while our implementation took a different direction:
+ 
+ - A major rewrite: refactor ContentView.swift into domain modules:
+	 - Model:
+		 - IconGenerationService.swift
+		 - ImageProcessing.swift
+		 - FileSystemHelpers.swift
+		 - WindowHelpers.swift
+	 - Views:
+	 	- ContentView.swift
+ - A new logo
+ - Revised user interface including languages functionality (English, Spanish).
  
 ## Changelog
 
