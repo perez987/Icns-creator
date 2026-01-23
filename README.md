@@ -26,7 +26,7 @@ Icns Creator is a macOS application that allows you to easily create icns or ico
 
  *Alp Tuğan* is the creator of the source repository [icns-creator](https://github.com/alptugan/icns-creator). The main code comes from there. I was looking for a GUI for the xattr command on macOS, preferably in SwiftUI, and I came across this excellent project that met my requirements.
 
- Some aspects of the project were not entirely to my liking, e.g. the README file and the ContentView.swift file, which was excessively long and contained functions and methods that would be better in separate classes. For this reason I made changes to the README, code and structure of the Xcode project.
+ Some aspects of the project were not entirely to my liking, e.g. the README file and the ContentView.swift file, which was excessively long and contained functions and methods that would be better in separate classes. For this reason I made changes to README, code and structure of the Xcode project.
  
 ## Changelog
 
