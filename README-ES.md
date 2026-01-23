@@ -26,20 +26,9 @@ Icns Creator es una aplicación de macOS que te permite crear fácilmente archiv
 
 ## Créditos
 
-*Alp Tuğan* es el creador del repositorio fuente [icns-creator](https://github.com/alptugan/icns-creator). El código principal proviene de ahí.
+*Alp Tuğan* es el creador del repositorio fuente [icns-creator](https://github.com/alptugan/icns-creator). El código principal proviene de ahí. Yo buscaba una interfaz gráfica para el comando xattr en macOS, preferiblemente en SwiftUI, y encontré este excelente proyecto que cumplía con mis requisitos.
 
-Es la inspiración y el nombre de mi aplicación, mientras que nuestra implementación tomó una dirección diferente:
-
-- Reescritura de código importante: refactorización de `ContentView.swift` en módulos de dominio:
-	- Modelo:
-		- `IconGenerationService.swift`
-		-` ImageProcessing.swift`
-		- `FileSystemHelpers.swift`
-		- `WindowHelpers.swift`
-	- Vistas:
-		- `ContentView.swift`
-- Nuevo AppIcon
-- Interfaz de usuario revisada, incluyendo la funcionalidad de idiomas (inglés, español).
+Algunas facetas del proyecto no eran totalmente de mi gusto, e.g. el archivo README y el archivo ContentView.swift, que era excesivamente largo y contenía funciones y métodos que estarían mejor en clases separadas. Por este motivo hice cambios en README, código y estructura del proyecto Xcode.
 
 ## Registro de Cambios
 
