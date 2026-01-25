@@ -4,7 +4,7 @@
 ![Platform](https://img.shields.io/badge/macOS-11+-orange.svg)
 
 <a href="README-ES.md">
-    <img src="https://img.shields.io/badge/Spanish-README-blue" alt=“Spanish README Docs”>
+    <img src="https://img.shields.io/badge/Spanish-README-blue" alt=“Spanish README”>
 </a><br><br>
 
 <p style="margin-top:20px" align="center">
