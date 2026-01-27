@@ -12,6 +12,7 @@
 		AA000005000000000005 /* FileSystemHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000006000000000006 /* FileSystemHelpers.swift */; };
 		AA000007000000000007 /* WindowHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000008000000000008 /* WindowHelpers.swift */; };
 		AA000009000000000009 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA000010000000000010 /* Localizable.strings */; };
+		D99CEDD82F291CED003E85E3 /* LanguageSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99CEDD72F291CED003E85E3 /* LanguageSelectorView.swift */; };
 		F1F183FB2A84FFE9008913F0 /* Icns_creatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F183FA2A84FFE9008913F0 /* Icns_creatorApp.swift */; };
 		F1F183FD2A84FFE9008913F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F183FC2A84FFE9008913F0 /* ContentView.swift */; };
 		F1F183FF2A84FFEA008913F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F183FE2A84FFEA008913F0 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		AA000008000000000008 /* WindowHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowHelpers.swift; sourceTree = "<group>"; };
 		AA000011000000000011 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA000012000000000012 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99CEDD72F291CED003E85E3 /* LanguageSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectorView.swift; sourceTree = "<group>"; };
 		F1451DE52A8EF44700041859 /* Icns-creator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Icns-creator-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F1F183F72A84FFE9008913F0 /* Icns creator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Icns creator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F183FA2A84FFE9008913F0 /* Icns_creatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icns_creatorApp.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				AA000006000000000006 /* FileSystemHelpers.swift */,
 				AA000002000000000002 /* IconGenerationService.swift */,
 				AA000004000000000004 /* ImageProcessing.swift */,
+				D99CEDD72F291CED003E85E3 /* LanguageSelectorView.swift */,
 				AA000008000000000008 /* WindowHelpers.swift */,
 			);
 			path = Model;
@@ -181,6 +184,7 @@
 				AA000003000000000003 /* ImageProcessing.swift in Sources */,
 				AA000005000000000005 /* FileSystemHelpers.swift in Sources */,
 				AA000007000000000007 /* WindowHelpers.swift in Sources */,
+				D99CEDD82F291CED003E85E3 /* LanguageSelectorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,8 +370,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 3.8.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alptugan.icns-creator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -420,8 +424,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 3.8.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alptugan.icns-creator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

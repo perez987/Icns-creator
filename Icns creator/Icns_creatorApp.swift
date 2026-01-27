@@ -113,15 +113,31 @@ struct RootView: View {
 @main
 struct icns_creatorApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
+    @State private var isLanguageSelectorPresented = false
 
     var body: some Scene {
         WindowGroup {
             RootView()
+                .sheet(isPresented: $isLanguageSelectorPresented) {
+                    LanguageSelectorView()
+                }
         }
         .defaultWindowSize(CGSize(width: kDefaultWindowWidth, height: kDefaultWindowHeight))
         //.defaultPosition(.center)
         //.windowResizabilityContentSize()
         .windowStyle(HiddenTitleBarWindowStyle())
+        
+        // Language menu
+        .commands {
+            CommandMenu(NSLocalizedString("menu_language", comment: "Language menu")) {
+                Button(NSLocalizedString("menu_select_language", comment: "Select Language menu item")) {
+                    isLanguageSelectorPresented = true
+                }
+                .keyboardShortcut("l", modifiers: .command)
+            }
+        }
+        
     }
 }
 

@@ -15,7 +15,7 @@
 
 <p align="center">
 Download the app from <a href="https://github.com/perez987/Icns-creator/releases/latest">Releases</a><br>
-(Supports macOS 11 up to macOS26).<br>
+(Supports macOS 13 up to macOS26).<br>
 </p>
 
 <img src="Assets/Window.png" alt="Image shows the three different screen shots of the main app window." width="800px" height="auto" style="border-radius:15px;">
@@ -53,7 +53,8 @@ These are the changes I've made in this fork:
 - Support for GIF, PNG, JPG, JPEG, TIFF and even PSD image file formats.
 - Automatic generation of icns files in variable sizes.
 - iconset folder and individual .icns file generation.
-- Options to set icon style for Apple design standarts (subtle shadow, corner radius, icon margin area).
+- Options to set icon style for Apple design standarts (subtle shadow, corner radius, icon margin area)
+- Localization system with language selector.
 
 ## Security warning when opening the app
 
@@ -231,3 +232,4 @@ If you have any questions, suggestions, or feedback, please feel free to use Iss
 - [x] ~~Quit app when clicked close button~~
 - [x] ~~Disable automatic window tabbing for Cmd+N~~
 - [x] ~~Fix Cmd+N to open fresh window instead of inheriting state~~
+- [x] ~~Add localization system with language selector~~

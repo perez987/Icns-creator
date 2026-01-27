@@ -39,3 +39,14 @@
 
 /* Error Messages */
 "failed_to_get_location" = "Failed to get file location";
+
+/* Language Menu */
+"menu_language" = "Language";
+"menu_select_language" = "Select Language...";
+"language_selector_title" = "Select Language";
+"accept" = "Accept";
+"cancel" = "Cancel";
+"ok" = "OK";
+"language_changed_title" = "Language Changed";
+"language_changed_message" = "Please restart the application\nto apply the new language.";
+
