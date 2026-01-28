@@ -51,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				F1F183FC2A84FFE9008913F0 /* ContentView.swift */,
+				D99CEDD72F291CED003E85E3 /* LanguageSelectorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -61,7 +62,6 @@
 				AA000006000000000006 /* FileSystemHelpers.swift */,
 				AA000002000000000002 /* IconGenerationService.swift */,
 				AA000004000000000004 /* ImageProcessing.swift */,
-				D99CEDD72F291CED003E85E3 /* LanguageSelectorView.swift */,
 				AA000008000000000008 /* WindowHelpers.swift */,
 			);
 			path = Model;
