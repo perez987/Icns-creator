@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings (German)
+  Icns creator
+*/
+
+/* Tab Labels */
+".iconset" = ".iconset";
+".icns" = ".icns";
+
+/* Main UI */
+"drag_image_text" = "Ziehen Sie Ihr Bild hierher oder ";
+"browse_button" = "Durchsuchen";
+
+/* Options Section */
+"options_title" = "Optionen";
+"enable_rounded_corners" = "Abgerundete Ecken aktivieren";
+"enable_subtle_shadow" = "Dezenten Schatten aktivieren";
+"enable_original_padding" = "Originalen Abstand aktivieren";
+"set_background_color" = "PNG-Hintergrundfarbe festlegen";
+
+/* Generate Buttons */
+"generate_iconset" = ".iconset generieren";
+"generate_icns" = ".icns generieren";
+
+/* Toggle Labels */
+"all" = "Alle";
+"size_16" = "16x16";
+"size_32" = "32x32";
+"size_64" = "64x64";
+"size_128" = "128x128";
+"size_256" = "256x256";
+"size_512" = "512x512";
+"size_1024" = "1024x1024";
+
+/* File Dialog */
+"choose_destination_title" = "Ziel auswählen";
+"choose_destination_message" = "Wählen Sie einen Ordner zum Speichern des .iconset";
+"choose_button" = "Auswählen";
+
+/* Error Messages */
+"failed_to_get_location" = "Dateispeicherort konnte nicht abgerufen werden";
+
+/* Language Menu */
+"menu_language" = "Sprache";
+"menu_select_language" = "Sprache auswählen...";
+"language_selector_title" = "Sprache auswählen";
+"accept" = "OK";
+"cancel" = "Abbrechen";
+"ok" = "OK";
+"language_changed_title" = "Sprache geändert";
+"language_changed_message" = "Bitte starten Sie die Anwendung neu,\num die neue Sprache anzuwenden.";
