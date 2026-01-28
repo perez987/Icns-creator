@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings (French)
+  Icns creator
+*/
+
+/* Tab Labels */
+".iconset" = ".iconset";
+".icns" = ".icns";
+
+/* Main UI */
+"drag_image_text" = "Glissez votre image ici ou ";
+"browse_button" = "Parcourir";
+
+/* Options Section */
+"options_title" = "Options";
+"enable_rounded_corners" = "Activer les coins arrondis";
+"enable_subtle_shadow" = "Activer l'ombre subtile";
+"enable_original_padding" = "Activer l'espacement d'origine";
+"set_background_color" = "Définir la couleur d'arrière-plan PNG";
+
+/* Generate Buttons */
+"generate_iconset" = "Générer .iconset";
+"generate_icns" = "Générer .icns";
+
+/* Toggle Labels */
+"all" = "Tout";
+"size_16" = "16x16";
+"size_32" = "32x32";
+"size_64" = "64x64";
+"size_128" = "128x128";
+"size_256" = "256x256";
+"size_512" = "512x512";
+"size_1024" = "1024x1024";
+
+/* File Dialog */
+"choose_destination_title" = "Choisir la destination";
+"choose_destination_message" = "Sélectionnez un dossier pour enregistrer le .iconset";
+"choose_button" = "Choisir";
+
+/* Error Messages */
+"failed_to_get_location" = "Impossible d'obtenir l'emplacement du fichier";
+
+/* Language Menu */
+"menu_language" = "Langue";
+"menu_select_language" = "Sélectionner la langue...";
+"language_selector_title" = "Sélectionner la langue";
+"accept" = "Accepter";
+"cancel" = "Annuler";
+"ok" = "OK";
+"language_changed_title" = "Langue modifiée";
+"language_changed_message" = "Veuillez redémarrer l'application\npour appliquer la nouvelle langue.";
