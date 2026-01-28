@@ -44,8 +44,8 @@
 "menu_language" = "Idioma";
 "menu_select_language" = "Seleccionar idioma...";
 "language_selector_title" = "Seleccionar idioma";
-"accept" = "OK";
+"accept" = "Aceptar";
 "cancel" = "Cancelar";
-"ok" = "OK";
+"ok" = "Aceptar";
 "language_changed_title" = "Idioma cambiado";
 "language_changed_message" = "Reinicia la aplicación\npara aplicar el nuevo idioma.";
