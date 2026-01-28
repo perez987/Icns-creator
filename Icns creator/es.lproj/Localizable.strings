@@ -44,7 +44,7 @@
 "menu_language" = "Idioma";
 "menu_select_language" = "Seleccionar idioma...";
 "language_selector_title" = "Seleccionar idioma";
-"accept" = "Aceptar";
+"accept" = "OK";
 "cancel" = "Cancelar";
 "ok" = "OK";
 "language_changed_title" = "Idioma cambiado";
