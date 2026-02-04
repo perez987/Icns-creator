@@ -33,7 +33,7 @@ Icns Creator is a macOS application that allows you to easily create icns or ico
 These are the changes I've made in this fork:
 
 - Add `AppDelegate` to quit app when window closes
-- Add localization System: English (default) and Spanish
+- Add localization System: English (default), German, French, Italian and Spanish
 - Succesfully checked on macOS Tahoe
 - Refactor `ContentView.swift` into domain modules: reduced `ContentView.swift` from 889→468 lines by extracting:
   - `IconGenerationService.swift`: `runShellCommand`, `processImage`, `runSipsCommand`, `generateCombinedIcns`
