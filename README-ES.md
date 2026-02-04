@@ -35,7 +35,7 @@ Algunas facetas del proyecto no eran totalmente de mi gusto, e.g. el archivo REA
 Estos son los cambios que he realizado en este fork:
 
 - Añadido `AppDelegate` para cerrar la aplicación cuando se cierra la ventana
-- Añadido sistema de traducción: Inglés (predeterminado) y Español
+- Añadido sistema de traducción: Inglés (predeterminado), Francés, Alemán, Italiano y Español
 - Funciona en macOS Tahoe
 - Refactorización de `ContentView.swift` en módulos; reducción de `ContentView.swift` de 889 → 468 líneas extrayendo:
   - `IconGenerationService.swift`: `runShellCommand`, `processImage`, `runSipsCommand`, `generateCombinedIcns`
