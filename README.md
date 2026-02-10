@@ -32,6 +32,7 @@ Some aspects of the project were not entirely to my liking, e.g. the README file
 
 These are the changes I've made in this fork:
 
+- Modified README.md
 - Add `AppDelegate` to quit app when window closes
 - Add localization System: English (default), German, French, Italian and Spanish
 - Succesfully checked on macOS Tahoe
