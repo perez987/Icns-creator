@@ -134,11 +134,11 @@ This is the easiest way to fix it.
 
 #### 3.- Xattr-remove
 
-Xattr-remove is a simple GUI application to remove the extended attribure `com.appl.quarantine` from files downloaded from Internet. It has their own [repository](https://github.com/perez987/Xattr-remove).
+Xattr-remove is a simple GUI application to remove the extended attribute `com.appl.quarantine` from files downloaded from Internet. It has their own [repository](https://github.com/perez987/Xattr-remove).
 
 #### 4.- Result
 
-Either way, disabling Gatekeeper, System Settings, “xattr”or  Xattr-remove, from this point on, the downloaded app will run without security prompts because the `com.apple.quarantine` attribute has been removed.
+Either way, disabling Gatekeeper, System Settings, “xattr” or Xattr-remove, from this point on, the downloaded app will run without security prompts because the `com.apple.quarantine` attribute has been removed.
 
 ### Option 3 (For developers)
 
