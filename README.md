@@ -1,11 +1,8 @@
 <h1 align="center">Icns Creator</h1>
 
+![Xcode](https://img.shields.io/badge/Xcode-15+-blue.svg)
 ![Swift](https://img.shields.io/badge/Swift-5+-lavender.svg)
-![Platform](https://img.shields.io/badge/macOS-11+-orange.svg)
-
-<a href="README-ES.md">
-    <img src="https://img.shields.io/badge/Spanish-README-blue" alt=“Spanish README”>
-</a><br><br>
+![Platform](https://img.shields.io/badge/macOS-13+-orange.svg)
 
 <p style="margin-top:20px" align="center">
 <img src="./Assets/logo.png" width="10%">
