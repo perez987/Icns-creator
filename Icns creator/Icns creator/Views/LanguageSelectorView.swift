@@ -116,6 +116,16 @@ private extension LanguageSelectorView {
                 .offset(x: 110, y: 120)
 
             VStack(spacing: 20) {
+                
+                ZStack {
+                    Circle()
+                        .fill(.blue.opacity(0.20))
+                        .frame(width: 54, height: 54)
+                    Image(systemName: "globe")
+                        .font(.system(size: 32))
+                        .foregroundStyle(.blue)
+                }
+
                 Text(NSLocalizedString("language_selector_title", comment: "Language selector title"))
                     .font(.title2.weight(.semibold))
                     .padding(.top)
@@ -171,6 +181,8 @@ private extension LanguageSelectorView {
             .shadow(color: Color.black.opacity(0.12), radius: 24, y: 10)
             .tint(softenedSelectionBlue)
         }
+        .frame(width: 360)
+
     }
 }
 

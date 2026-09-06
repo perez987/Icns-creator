@@ -371,7 +371,7 @@
 				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Required to save generated icon files";
 				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Required to save generated icon files";
 				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "Required to save generated icon files";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "©2025 Alp Tugan";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "©2025 Alp Tugan\n@2026 Perez987";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -382,6 +382,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alptugan.icns-creator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -423,7 +424,7 @@
 				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "Required to save generated icon files";
 				INFOPLIST_KEY_NSDownloadsFolderUsageDescription = "Required to save generated icon files";
 				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "Required to save generated icon files";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "©2025 Alp Tugan";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "©2025 Alp Tugan\n@2026 Perez987";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -434,6 +435,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alptugan.icns-creator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
