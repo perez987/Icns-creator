@@ -15,7 +15,13 @@ Download the app from <a href="https://github.com/perez987/Icns-creator/releases
 (Supports macOS 13 up to macOS26).<br>
 </p>
 
-<img src="Assets/Window.png" alt="Image shows the three different screen shots of the main app window." width="800px" height="auto" style="border-radius:15px;">
+<table align="center" >
+  <tr>
+    <td>
+      <img src="Assets/Window.png" alt="Image shows the three different screen shots of the main app window." width="800px" height="auto" style="border-radius:15px;">
+    </td>
+  </tr>
+</table>
 
 Icns Creator is a macOS application that allows you to easily create icns or icons files from any PNG or JPG image file. With this tool, you can quickly generate high-quality icns files to use as icons for your macOS applications or generate a single appropriate .iconset file to be easily included in Xcode projects.
 
@@ -31,9 +37,9 @@ These are the changes I've made in this fork:
 
 - App notarized by Apple
 - Modified README.md
-- Add `AppDelegate` to quit app when window closes
-- Add localization System: English (default), German, French, Italian and Spanish
-- Succesfully checked on macOS Tahoe
+- Add `AppDelegate` to quit the app when the window closes
+- Add localization System: English (default), German, French, Italian and Spanish with language selector
+- Succesfully checked on macOS Tahoe and Golden Gate
 - Refactor `ContentView.swift` into domain modules: reduced `ContentView.swift` from 889→468 lines by extracting:
   - `IconGenerationService.swift`: `runShellCommand`, `processImage`, `runSipsCommand`, `generateCombinedIcns`
   - `ImageProcessing.swift`: `createRoundedImage`, image manipulation, format conversion
@@ -44,7 +50,9 @@ These are the changes I've made in this fork:
 - Fix duplicated size in .icns names
 - Updated the app to ensure Cmd+N opens new windows with independent state, preventing state inheritance between windows
 - Disabled automatic window tabbing so new windows open separately instead of as tabs
-- Use dropped image directory as default save location. Dialog still allows navigation to any destination; this only sets the initial location.
+- Use dropped image directory as default save location. Dialog still allows navigation to any destination; this only sets the initial location
+- The UI design has been updated to make it more modern and user-friendly
+- Preserve PNG alpha in `.icns` and `.iconset` export.
 
 ## Features
 
@@ -52,7 +60,8 @@ These are the changes I've made in this fork:
 - Support for GIF, PNG, JPG, JPEG, TIFF and even PSD image file formats.
 - Automatic generation of icns files in variable sizes.
 - iconset folder and individual .icns file generation.
-- Options to set icon style for Apple design standarts (subtle shadow, corner radius, icon margin area)
+- `.iconset` exports keep the original artwork and only resize it to the required icon dimensions.
+- `.icns` styling options for Apple design standards (subtle shadow, corner radius, icon margin area)
 - Localization system with language selector.
 
 #### Get the Code
@@ -91,9 +100,9 @@ cd Icns-creator
 2. Save the image file as a PNG or JPG file in a 1:1 aspect ratio for the best results.
 3. Open the Icns Creator application.
 4. Click the `Browse` button or drag & drop the image.
-5. The `.iconset` tab creates a single icon file (1024x1024) and a folder containing PNG files required by Xcode (`Assets.xcassets/AppIcon.appiconset`)
+5. The `.iconset` tab creates a single icon file (1024x1024) and a folder containing PNG files required by Xcode (`Assets.xcassets/AppIcon.appiconset`). These PNGs preserve the source artwork and are only resized to the required dimensions.
 6. The `.icns` tab creates individual .icns files in the previously selected sizes.
-7. By default shadow, rounded corners and padding for the generated icon is enabled. For recent Mac OS standards, you should enable all of the options to apply Apple Design standards. If you just want to generate .icns files as before, disable all of the options.
+7. Rounded corners, shadow and padding are available on the `.icns` tab. For recent macOS design standards, you should enable the options you want to apply to the generated `.icns` variants.
 8. The files will be created in the same directory as the original image file.
 
 ## Contribution
@@ -143,3 +152,5 @@ If you have any questions, suggestions, or feedback, please feel free to use Iss
 - [x] ~~Disable automatic window tabbing for Cmd+N~~
 - [x] ~~Fix Cmd+N to open fresh window instead of inheriting state~~
 - [x] ~~Add localization system with language selector~~
+- [x] ~~Update the UI design to make it more modern and user-friendly~~
+- [x] ~~Preserve PNG alpha in .icns and .iconset export.~~

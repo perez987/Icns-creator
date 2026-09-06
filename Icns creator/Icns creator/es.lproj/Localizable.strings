@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings (Spanish)
+  Icns creator
+*/
+
+/* Tab Labels */
+".iconset" = ".iconset";
+".icns" = ".icns";
+
+/* Main UI */
+"drag_image_text" = "Arrastra tu imagen arriba o ";
+"browse_button" = "Examinar";
+//"app_subtitle" = "Estudio de exportación de iconos para macOS";
+"app_subtitle" = "";
+"drop_artwork_title" = "Suelta tu imagen para empezar";
+"drop_artwork_subtitle" = "Crea exportaciones `.iconset` y variantes `.icns` en un solo lugar.";
+"browse_artwork_label" = "Elegir imagen";
+"drop_artwork_hint" = "Abre el selector de archivos para elegir la imagen.";
+"selected_state" = "Seleccionado";
+"not_selected_state" = "No seleccionado";
+
+/* Options Section */
+"options_title" = "Opciones";
+"enable_rounded_corners" = "Habilitar Esquinas Redondeadas";
+"enable_subtle_shadow" = "Habilitar Sombra Sutil";
+"enable_original_padding" = "Habilitar Margen Original";
+"set_background_color" = "Establecer Color de Fondo PNG";
+
+/* Generate Buttons */
+"generate_iconset" = "Generar .iconset";
+"generate_icns" = "Generar .icns";
+
+/* Toggle Labels */
+"all" = "All";
+"size_16" = "16";
+"size_32" = "32";
+"size_64" = "64";
+"size_128" = "128";
+"size_256" = "256";
+"size_512" = "512";
+"size_1024" = "1024";
+
+/* File Dialog */
+"choose_destination_title" = "Elegir Destino";
+"choose_destination_message" = "Selecciona una carpeta para guardar el .iconset";
+"choose_button" = "Elegir";
+
+/* Error Messages */
+"failed_to_get_location" = "No se pudo obtener la ubicación del archivo";
+
+/* Language Menu */
+"menu_language" = "Idioma";
+"menu_select_language" = "Seleccionar idioma...";
+"language_selector_title" = "Seleccionar idioma";
+"accept" = "Aceptar";
+"cancel" = "Cancelar";
+"ok" = "Aceptar";
+"language_changed_title" = "Idioma cambiado";
+"language_changed_message" = "Reinicia la aplicación\npara aplicar el nuevo idioma.";

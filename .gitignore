@@ -9,10 +9,5 @@
 Temporary Items
 Thumbs.db
 
-*.xcuserstate
+**xcuserdata
 .build/
-
-*.hmap
-*.ipa
-*.dSYM.zip
-*.dSYM
