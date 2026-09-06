@@ -86,8 +86,8 @@ class GlobalVariables: ObservableObject {
 }
 
 // Window dimension constants
-let kDefaultWindowWidth: CGFloat = 660
-let kDefaultWindowHeight: CGFloat = 660
+let kDefaultWindowWidth: CGFloat = 620
+let kDefaultWindowHeight: CGFloat = 640
 let kMaximumWindowHeight: CGFloat = 980
 
 /// Wrapper view to ensure each window gets its own GlobalVariables instance

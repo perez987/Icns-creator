@@ -15,7 +15,7 @@ import UniformTypeIdentifiers
 struct ContentView: View {
     @State private var selectedTab = 0
     @EnvironmentObject var g: GlobalVariables
-    private let contentPadding: CGFloat = 16
+    private let contentPadding: CGFloat = 14
 
     var body: some View {
         if #available(macOS 14.0, *) {
@@ -109,7 +109,7 @@ struct HeaderCard: View {
                     Text(NSLocalizedString(".icns", comment: "")).tag(1)
                 }
                 .pickerStyle(.segmented)
-                .frame(width: 200)
+                .frame(width: 184)
             }
         }
         .padding(.horizontal, 16)
@@ -256,7 +256,7 @@ struct PlaceholderStage: View {
                     .font(.body)
                     .foregroundStyle(.primary)
                     .multilineTextAlignment(.center)
-                    .frame(maxWidth: 420)
+                    .frame(maxWidth: 360)
             }
         }
     }
@@ -549,5 +549,7 @@ struct PrimaryActionButtonStyle: ButtonStyle {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(GlobalVariables())
+            .frame(width: kDefaultWindowWidth, height: kDefaultWindowHeight)
     }
 }
