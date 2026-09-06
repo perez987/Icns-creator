@@ -4,10 +4,6 @@
 ![Swift](https://img.shields.io/badge/Swift-5+-lavender.svg)
 ![Platform](https://img.shields.io/badge/macOS-13+-orange.svg)
 
-<p style="margin-top:20px" align="center">
-<img src="./Assets/logo.png" width="10%">
-</p>
-
 <p align="center">A native macOS app that converts images to `.iconset` or `.icns` icon files.</p>
 
 <p align="center">
