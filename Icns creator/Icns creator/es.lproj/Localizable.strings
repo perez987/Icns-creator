@@ -8,7 +8,7 @@
 ".icns" = ".icns";
 
 /* Main UI */
-"drag_image_text" = "Arrastra tu imagen arriba o ";
+"drag_image_text" = "Arrastra tu imagen aquí arriba o ";
 "browse_button" = "Examinar";
 //"app_subtitle" = "Estudio de exportación de iconos para macOS";
 "app_subtitle" = "";

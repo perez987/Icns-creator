@@ -8,9 +8,9 @@
 ".icns" = ".icns";
 
 /* Main UI */
-"drag_image_text" = "Trascina l'immagine verso l'alto o ";
+"drag_image_text" = "Trascina la tua immagine qui sopra o ";
 "browse_button" = "Sfoglia";
-"app_subtitle" = "Studio di esportazione icone per macOS";
+//"app_subtitle" = "Studio di esportazione icone per macOS";
 "app_subtitle" = "";
 "drop_artwork_title" = "Rilascia la grafica per iniziare";
 "drop_artwork_subtitle" = "Crea esportazioni `.iconset` e varianti `.icns` in un unico posto.";

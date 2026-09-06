@@ -11,6 +11,11 @@ Download the app from <a href="https://github.com/perez987/Icns-creator/releases
 (Supports macOS 13 up to macOS26).<br>
 </p>
 
+|  | 
+|:----|
+| ![Window](Images/Screenshots/Main-window.png) |
+| ![Window](Images/Screenshots/Export-iconset.png) |
+
 <table align="center" >
   <tr>
     <td>

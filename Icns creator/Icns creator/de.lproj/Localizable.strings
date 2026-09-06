@@ -8,7 +8,7 @@
 ".icns" = ".icns";
 
 /* Main UI */
-"drag_image_text" = "Ziehen Sie Ihr Bild nach oben oder ";
+"drag_image_text" = "Ziehen Sie Ihr Bild hierher oder ";
 "browse_button" = "Durchsuchen";
 //"app_subtitle" = "macOS-Icon-Exportstudio";
 "app_subtitle" = "";
