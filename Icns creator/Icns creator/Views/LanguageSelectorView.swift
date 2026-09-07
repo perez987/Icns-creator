@@ -23,6 +23,7 @@ struct LanguageItem: Identifiable {
 
 struct LanguageSelectorView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.colorScheme) private var colorScheme
     @State private var selectedLanguage: String
     @State private var showRestartAlert = false
     private let initialLanguage: String
@@ -87,6 +88,13 @@ struct LanguageSelectorView: View {
             dismiss()
         }
     }
+
+    private func languageRowTextColor(for code: String) -> Color {
+        if selectedLanguage == code {
+            return .white
+        }
+        return colorScheme == .dark ? Color.black.opacity(0.85) : Color(nsColor: .labelColor)
+    }
 }
 
 private extension LanguageSelectorView {
@@ -137,6 +145,7 @@ private extension LanguageSelectorView {
                         Text(language.name)
                             .font(.body)
                     }
+                    .foregroundStyle(languageRowTextColor(for: language.code))
                     .tag(language.code)
                     .padding(.vertical, 4)
                 }

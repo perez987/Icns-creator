@@ -482,16 +482,22 @@ struct SizeSelectionChip: View {
 }
 
 struct ChipToggleStyle: ToggleStyle {
+    @Environment(\.colorScheme) private var colorScheme
+
+    private var unselectedForegroundColor: Color {
+        colorScheme == .dark ? Color.black.opacity(0.85) : Color(nsColor: .labelColor)
+    }
+
     func makeBody(configuration: Configuration) -> some View {
         Button {
             configuration.isOn.toggle()
         } label: {
             HStack(spacing: 10) {
                 Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle")
-                    .foregroundStyle(configuration.isOn ? Color.white : Color(nsColor: .labelColor))
+                    .foregroundStyle(configuration.isOn ? Color.white : unselectedForegroundColor)
                 configuration.label
                     .font(.system(size: 14, weight: .medium, design: .rounded))
-                    .foregroundStyle(configuration.isOn ? Color.white : Color(nsColor: .labelColor))
+                    .foregroundStyle(configuration.isOn ? Color.white : unselectedForegroundColor)
                 Spacer(minLength: 0)
             }
             .padding(.horizontal, 16)
