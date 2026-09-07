@@ -189,7 +189,8 @@ struct PreviewDropCard: View {
                     selectFileFromSystem(g: g)
                 }
                 .buttonStyle(.plain)
-                .foregroundStyle(.blue)
+                .underline()
+                .foregroundStyle(.primary)
                 .fontWeight(.semibold)
             }
             .font(.title3)
@@ -306,6 +307,7 @@ struct IcnsOptionsCard: View {
         VStack(alignment: .leading, spacing: 18) {
             Text(NSLocalizedString("options_title", comment: ""))
                 .font(.system(size: 24, weight: .semibold, design: .rounded))
+                .foregroundStyle(.primary)
 
             OptionToggleRow(title: NSLocalizedString("enable_rounded_corners", comment: ""), isOn: $g.enableRoundedCorners)
             OptionToggleRow(title: NSLocalizedString("enable_subtle_shadow", comment: ""), isOn: $g.enableIconShadow)
@@ -328,6 +330,7 @@ struct IcnsOptionsCard: View {
 //            }
         }
         .padding(18)
+        .foregroundStyle(.primary)
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 32, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: 32, style: .continuous)
@@ -345,7 +348,7 @@ struct OptionToggleRow: View {
         HStack(spacing: 16) {
             Text(title)
                 .font(.title3)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.primary)
             Spacer()
             Toggle("", isOn: $isOn)
                 .labelsHidden()
