@@ -53,7 +53,7 @@ These are the changes I've made in this fork:
 - Support for GIF, PNG, JPG, JPEG, TIFF and even PSD image file formats.
 - Automatic generation of icns files in variable sizes.
 - iconset folder and individual .icns file generation.
-- `.iconset` exports keep the original artwork and only resize it to the required icon dimensions.
+- `.iconset` exports automatically apply Apple-style rounded corners, subtle shadow, and padding to every generated PNG.
 - `.icns` styling options for Apple design standards (subtle shadow, corner radius, icon margin area)
 - Localization system with language selector.
 
@@ -93,7 +93,7 @@ cd Icns-creator
 2. Save the image file as a PNG or JPG file in a 1:1 aspect ratio for the best results.
 3. Open the Icns Creator application.
 4. Click the `Browse` button or drag & drop the image.
-5. The `.iconset` tab creates a single icon file (1024x1024) and a folder containing PNG files required by Xcode (`Assets.xcassets/AppIcon.appiconset`). These PNGs preserve the source artwork and are only resized to the required dimensions.
+5. The `.iconset` tab creates a single icon file (1024x1024) and a folder containing PNG files required by Xcode (`Assets.xcassets/AppIcon.appiconset`). These PNGs automatically receive the same rounded corners, subtle shadow and padding used for Apple-style app icons.
 6. The `.icns` tab creates individual .icns files in the previously selected sizes.
 7. Rounded corners, shadow and padding are available on the `.icns` tab. For recent macOS design standards, you should enable the options you want to apply to the generated `.icns` variants.
 8. The files will be created in the same directory as the original image file.

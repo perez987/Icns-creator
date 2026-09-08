@@ -48,8 +48,8 @@ func runShellCommand(g: GlobalVariables) {
     }
 }
 
-func processImage(pixelSize: Int, pointSize: Int, isRetina: Bool, escapedImagePath: String, escapedIconPath: String, g _: GlobalVariables) {
-    guard let iconsetImage = createIconsetImage(from: escapedImagePath, size: pixelSize) else { return }
+func processImage(pixelSize: Int, pointSize: Int, isRetina: Bool, escapedImagePath: String, escapedIconPath: String, g: GlobalVariables) {
+    guard let iconsetImage = createRoundedImage(from: escapedImagePath, size: pixelSize, _isRoundCornersEnabled: true, _enableShadow: true, _enablePadding: true, g: g) else { return }
 
     guard let tiffData = iconsetImage.tiffRepresentation,
           let bitmapRep = NSBitmapImageRep(data: tiffData),
