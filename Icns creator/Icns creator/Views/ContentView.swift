@@ -368,8 +368,9 @@ struct GenerateView_ICONSET: View {
                 openPanel.begin { response in
                     if response == .OK, let selectedDirectory = openPanel.url {
                         g.destinationPath = selectedDirectory.path
-                        runShellCommand(g: g)
-                        generateCombinedIcns(g: g)
+                        if runShellCommand(g: g) {
+                            generateCombinedIcns(g: g)
+                        }
                     }
                 }
             }

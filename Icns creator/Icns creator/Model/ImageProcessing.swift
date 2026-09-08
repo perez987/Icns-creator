@@ -8,6 +8,43 @@
 import Cocoa
 import Foundation
 
+private func renderImageAtExactPixelSize(size: Int, drawing: (NSRect) -> Void) -> NSImage? {
+    guard size > 0 else { return nil }
+
+    let targetRect = NSRect(x: 0, y: 0, width: size, height: size)
+    guard let bitmapRep = NSBitmapImageRep(
+        bitmapDataPlanes: nil,
+        pixelsWide: size,
+        pixelsHigh: size,
+        bitsPerSample: 8,
+        samplesPerPixel: 4,
+        hasAlpha: true,
+        isPlanar: false,
+        colorSpaceName: .deviceRGB,
+        bytesPerRow: 0,
+        bitsPerPixel: 0
+    ) else {
+        return nil
+    }
+
+    bitmapRep.size = NSSize(width: size, height: size)
+
+    NSGraphicsContext.saveGraphicsState()
+    guard let context = NSGraphicsContext(bitmapImageRep: bitmapRep) else {
+        NSGraphicsContext.restoreGraphicsState()
+        return nil
+    }
+
+    NSGraphicsContext.current = context
+    drawing(targetRect)
+    context.flushGraphics()
+    NSGraphicsContext.restoreGraphicsState()
+
+    let finalImage = NSImage(size: targetRect.size)
+    finalImage.addRepresentation(bitmapRep)
+    return finalImage
+}
+
 private func aspectFitRect(for image: NSImage, in bounds: NSRect) -> NSRect {
     let sourceSize = image.size
     guard sourceSize.width > 0, sourceSize.height > 0, bounds.width > 0, bounds.height > 0 else {
@@ -32,16 +69,11 @@ private func drawImageAspectFit(_ image: NSImage, in bounds: NSRect) {
 func createIconsetImage(from path: String, size: Int) -> NSImage? {
     guard let image = NSImage(contentsOfFile: path), size > 0 else { return nil }
 
-    let targetRect = NSRect(x: 0, y: 0, width: size, height: size)
-    let finalImage = NSImage(size: targetRect.size)
-
-    finalImage.lockFocus()
-    NSColor.clear.setFill()
-    targetRect.fill()
-    drawImageAspectFit(image, in: targetRect)
-    finalImage.unlockFocus()
-
-    return finalImage
+    return renderImageAtExactPixelSize(size: size) { targetRect in
+        NSColor.clear.setFill()
+        targetRect.fill()
+        drawImageAspectFit(image, in: targetRect)
+    }
 }
 
 /// -------------------------------------------------------------------------------------------------
@@ -75,7 +107,6 @@ func createRoundedImage(from path: String, size: Int, _isRoundCornersEnabled: Bo
     }
 
     let targetRect = NSRect(x: 0, y: 0, width: size, height: size)
-    let finalImage = NSImage(size: targetRect.size)
 
     // Calculate radius for rounded corners
     var radiusVal: Double = 0
@@ -84,38 +115,35 @@ func createRoundedImage(from path: String, size: Int, _isRoundCornersEnabled: Bo
     }
     let bezierPath = NSBezierPath(roundedRect: targetRect, xRadius: radiusVal, yRadius: radiusVal)
 
-    finalImage.lockFocus()
-    NSColor.clear.setFill()
-    targetRect.fill()
+    return renderImageAtExactPixelSize(size: size) { _ in
+        NSColor.clear.setFill()
+        targetRect.fill()
 
-    // Clip to the larger rounded rectangle
-    bezierPath.addClip()
+        // Clip to the larger rounded rectangle
+        bezierPath.addClip()
 
-    // Calculate the origin to center the scaled-down image
-    let xOffset = (size - scaledSize) / 2
-    let yOffset = (size - scaledSize) / 2
-    let scaledRect = NSRect(x: xOffset, y: yOffset, width: scaledSize, height: scaledSize)
+        // Calculate the origin to center the scaled-down image
+        let xOffset = (size - scaledSize) / 2
+        let yOffset = (size - scaledSize) / 2
+        let scaledRect = NSRect(x: xOffset, y: yOffset, width: scaledSize, height: scaledSize)
 
-    if _enableShadow {
-        let shadow = NSShadow()
-        let shadowRadius = floor(Double(scaledSize) * 0.034)
-        shadow.shadowOffset = NSSize(width: 0, height: -1)
-        shadow.shadowBlurRadius = CGFloat(shadowRadius)
-        shadow.shadowColor = NSColor.black.withAlphaComponent(0.3)
-        shadow.set()
+        if _enableShadow {
+            let shadow = NSShadow()
+            let shadowRadius = floor(Double(scaledSize) * 0.034)
+            shadow.shadowOffset = NSSize(width: 0, height: -1)
+            shadow.shadowBlurRadius = CGFloat(shadowRadius)
+            shadow.shadowColor = NSColor.black.withAlphaComponent(0.3)
+            shadow.set()
+        }
+
+        let scaledBezierPath = NSBezierPath(roundedRect: scaledRect, xRadius: radiusVal, yRadius: radiusVal)
+
+        if _isRoundCornersEnabled {
+            scaledBezierPath.addClip()
+        }
+
+        image.draw(in: scaledRect, from: .zero, operation: .sourceOver, fraction: 1.0)
     }
-
-    let scaledBezierPath = NSBezierPath(roundedRect: scaledRect, xRadius: radiusVal, yRadius: radiusVal)
-
-    if _isRoundCornersEnabled {
-        scaledBezierPath.addClip()
-    }
-
-    image.draw(in: scaledRect, from: .zero, operation: .sourceOver, fraction: 1.0)
-
-    finalImage.unlockFocus()
-
-    return finalImage
 }
 
 func loadImage(named imageName: String) -> NSImage? {
