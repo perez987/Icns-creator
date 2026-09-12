@@ -131,13 +131,12 @@ struct FixedWindowConfigurator: NSViewRepresentable {
 
     private func applyFixedWindowStyle(from view: NSView, coordinator: Coordinator) {
         guard let window = view.window else { return }
-        let clampedHeight = min(max(window.frame.height, kDefaultWindowHeight), kMaximumWindowHeight)
 
         if !coordinator.didApplyFixedFrame {
             let currentTopLeft = NSPoint(x: window.frame.minX, y: window.frame.maxY)
             var fixedFrame = window.frame
-            fixedFrame.size = CGSize(width: kDefaultWindowWidth, height: clampedHeight)
-            fixedFrame.origin.y = currentTopLeft.y - clampedHeight
+            fixedFrame.size = CGSize(width: kDefaultWindowWidth, height: kDefaultWindowHeight)
+            fixedFrame.origin.y = currentTopLeft.y - kDefaultWindowHeight
             window.setFrame(fixedFrame, display: true)
             coordinator.didApplyFixedFrame = true
         }
