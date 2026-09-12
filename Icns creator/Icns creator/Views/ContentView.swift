@@ -129,7 +129,7 @@ struct CommonView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            PreviewDropCard(selectedTab: selectedTab)
+            PreviewDropCard()
 
             if g.selectedImage != nil && selectedTab == 1 {
                 IcnsOptionsCard()
@@ -140,7 +140,6 @@ struct CommonView: View {
 
 struct PreviewDropCard: View {
     @EnvironmentObject var g: GlobalVariables
-    let selectedTab: Int
 
     private var hasImage: Bool {
         g.selectedImage != nil
@@ -164,7 +163,7 @@ struct PreviewDropCard: View {
                         )
 
                     if hasImage, let image = g.selectedImage {
-                        PreviewImageStage(selectedTab: selectedTab, image: image)
+                        PreviewImageStage(image: image)
                             .padding(22)
                     } else {
                         PlaceholderStage()
@@ -264,36 +263,16 @@ struct PlaceholderStage: View {
 }
 
 struct PreviewImageStage: View {
-    @EnvironmentObject var g: GlobalVariables
-    let selectedTab: Int
     let image: NSImage
-
-    private var cornerRadius: CGFloat {
-        g.enableRoundedCorners && selectedTab == 1 ? 44 : 0
-    }
-
-    private var previewPadding: CGFloat {
-        g.enablePadding && selectedTab == 1 ? 34 : 0
-    }
 
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 28, style: .continuous)
                 .fill(Color.white.opacity(0.42))
 
-            if selectedTab == 1 {
-                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .fill(Color(g.selectedBackgroundColor))
-                    .padding(previewPadding)
-                    .shadow(color: Color.black.opacity(g.enableIconShadow ? 0.14 : 0), radius: g.enableIconShadow ? 24 : 0, y: 12)
-            }
-
             Image(nsImage: image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .padding(previewPadding)
-                .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
-                .shadow(color: Color.black.opacity(g.enableIconShadow && selectedTab == 1 ? 0.16 : 0), radius: g.enableIconShadow && selectedTab == 1 ? 18 : 0, y: 10)
                 .padding(24)
         }
         .frame(maxWidth: .infinity, minHeight: 220)

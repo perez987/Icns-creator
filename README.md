@@ -13,8 +13,8 @@ Download the app from <a href="https://github.com/perez987/Icns-creator/releases
 
 |  | 
 |:----|
-| ![Window](Images/Screenshots/Main-window.png) |
 | ![Window](Images/Screenshots/Export-iconset.png) |
+| ![Window](Images/Screenshots/Export-icns.png) |
 
 Icns Creator is a macOS application that allows you to easily create icns or icons files from any PNG or JPG image file. With this tool, you can quickly generate high-quality icns files to use as icons for your macOS applications or generate a single appropriate .iconset file to be easily included in Xcode projects.
 
@@ -146,4 +146,5 @@ If you have any questions, suggestions, or feedback, please feel free to use Iss
 - [x] ~~Fix Cmd+N to open fresh window instead of inheriting state~~
 - [x] ~~Add localization system with language selector~~
 - [x] ~~Update the UI design to make it more modern and user-friendly~~
-- [x] ~~Preserve PNG alpha in .icns and .iconset export.~~
+- [x] ~~Preserve PNG alpha in .icns and .iconset export~~
+- [x] ~~Unify image preview in both .icns and .iconset tabs.~~
