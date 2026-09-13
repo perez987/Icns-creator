@@ -4,7 +4,7 @@
 ![Swift](https://img.shields.io/badge/Swift-5+-lavender.svg)
 ![Plataforma](https://img.shields.io/badge/macOS-13+-orange.svg)
 
-<p align="center">Una aplicación nativa para macOS que convierte imágenes en archivos de icono `.iconset` o `.icns`.</p>
+<p align="center">Aplicación nativa para macOS que convierte imágenes en archivos de icono `.iconset` o `.icns`.</p>
 
 <p align="center">
 Descarga la aplicación desde <a href="https://github.com/perez987/Icns-creator/releases/latest">Releases</a><br>
@@ -16,7 +16,7 @@ Descarga la aplicación desde <a href="https://github.com/perez987/Icns-creator/
 | ![Ventana](Images/Screenshots/Export-iconset-es.png) |
 | ![Ventana](Images/Screenshots/Export-icns-es.png) |
 
-Icns Creator es una aplicación de macOS que permite crear fácilmente archivos .icns o paquetes de iconos .icomset a partir de cualquier archivo de imagen PNG o JPG. Con esta herramienta, puedes generar rápidamente archivos .icns de alta calidad para utilizarlos como iconos de tus aplicaciones de macOS, o generar un único archivo `.iconset` adecuado para incluirlo fácilmente en proyectos de Xcode.
+Icns Creator es una aplicación de macOS que permite crear fácilmente archivos `.icns` o paquetes de iconos `.iconset` a partir de cualquier archivo de imagen PNG o JPG. Con esta herramienta, puedes generar rápidamente archivos .icns de alta calidad para utilizarlos como iconos de tus aplicaciones de macOS, o generar un único archivo `.iconset` adecuado para incluirlo fácilmente en proyectos de Xcode.
 
 ## Créditos
 
