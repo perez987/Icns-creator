@@ -44,12 +44,12 @@ Estos son los cambios que he realizado en mi proyecto:
 
 ## Características
 
-- Interfaz de usuario sencilla e intuitiva.
-- Compatibilidad con formatos de imagen PNG, JPG, JPEG, TIFF, HEIC e incluso PSD.
-- Generación automática de archivos `icns` en varios tamaños.
-- Generación de carpetas `iconset` y de archivos `.icns` individuales.
-- Las exportaciones de `.iconset` aplican automáticamente esquinas redondeadas al estilo de Apple, sombra sutil y relleno a cada PNG generado.
-- Opciones de estilo para `.icns` conforme a los estándares de diseño de Apple: sombra sutil, radio de esquina y margen del icono.
+- Interfaz de usuario sencilla e intuitiva
+- Compatibilidad con formatos de imagen PNG, JPG, JPEG, TIFF, HEIC e incluso PSD
+- Generación automática de archivos `icns` en varios tamaños
+- Generación de carpetas `iconset` y de archivos `.icns` individuales
+- Las exportaciones de `.iconset` aplican automáticamente esquinas redondeadas al estilo de Apple, sombra sutil y relleno a cada PNG generado
+- Opciones de estilo para `.icns` conforme a los estándares de diseño de Apple: sombra sutil, radio de esquina y margen del icono
 - Sistema de traducciones con selector de idioma.
 
 #### Obtener el código
@@ -65,7 +65,7 @@ cd Icns-creator
 
 1. Abre el proyecto con Xcode
 2. Selecciona tu Mac como destino de ejecución
-3. Pulsa `Cmd+R` para compilar y ejecutar la aplicación
+3. Pulsa `Cmd+R` para compilar y ejecutar la aplicación.
 
 #### Compilación desde la línea de comandos
 
@@ -84,7 +84,7 @@ cd Icns-creator
 
 ## Uso para diseñadores y desarrolladores
 
-1. Prepara el archivo de imagen en tu editor de imágenes preferido, asegurándote de que tenga un tamaño mínimo de 1024x1024 píxeles.
+1. Prepara el archivo de imagen en tu editor de imágenes preferido, asegurándote de que tenga un tamaño mínimo de 1024x1024 píxeles
 2. Guarda el archivo de imagen como PNG o JPG (u otro de los archivos soportados) con una relación de aspecto 1:1 para obtener los mejores resultados
 3. Abre la aplicación Icns Creator
 4. Haz clic en el botón `Explorar` o arrastra y suelta la imagen

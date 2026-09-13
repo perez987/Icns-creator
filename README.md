@@ -32,7 +32,7 @@ These are the changes I've made in this fork:
 - Modified README.md and added README-ES.md
 - Add `AppDelegate` to quit the app when the window closes
 - Add localization System: English (default), German, French, Italian and Spanish with language selector
-- Succesfully checked on macOS Tahoe and Golden Gate
+- Successfully checked from macOS Ventura up to Golden Gate
 - Refactor `ContentView.swift` into domain modules: reduced `ContentView.swift` from 889→468 lines by extracting:
   - `IconGenerationService.swift`: `runShellCommand`, `processImage`, `runSipsCommand`, `generateCombinedIcns`
   - `ImageProcessing.swift`: `createRoundedImage`, image manipulation, format conversion
@@ -49,11 +49,11 @@ These are the changes I've made in this fork:
 
 ## Features
 
-- Simple and intuitive user interface.
-- Support for PNG, JPG, JPEG, TIFF, HEIC and even PSD image file formats.
-- Automatic generation of icns files in variable sizes.
-- iconset folder and individual .icns file generation.
-- `.iconset` exports automatically apply Apple-style rounded corners, subtle shadow, and padding to every generated PNG.
+- Simple and intuitive user interface
+- Support for PNG, JPG, JPEG, TIFF, HEIC and even PSD image file formats
+- Automatic generation of icns files in variable sizes
+- iconset folder and individual .icns file generation
+- `.iconset` exports automatically apply Apple-style rounded corners, subtle shadow, and padding to every generated PNG
 - `.icns` styling options for Apple design standards (subtle shadow, corner radius, icon margin area)
 - Localization system with language selector.
 
@@ -89,24 +89,24 @@ cd Icns-creator
 
 ## Usage for Designers & Developers
 
-1. Prepare your image file in your preferred image editor, ensuring it has a minimum size of 1024x1024 pixels.
-2. Save the image file as a PNG or JPG file in a 1:1 aspect ratio for the best results.
-3. Open the Icns Creator application.
-4. Click the `Browse` button or drag & drop the image.
-5. The `.iconset` tab creates a single icon file (1024x1024) and a folder containing PNG files required by Xcode (`Assets.xcassets/AppIcon.appiconset`). These PNGs automatically receive the same rounded corners, subtle shadow and padding used for Apple-style app icons.
-6. The `.icns` tab creates individual .icns files in the previously selected sizes.
-7. Rounded corners, shadow and padding are available on the `.icns` tab. For recent macOS design standards, you should enable the options you want to apply to the generated `.icns` variants.
+1. Prepare your image file in your preferred image editor, ensuring it has a minimum size of 1024x1024 pixels
+2. Save the image file as a PNG or JPG file in a 1:1 aspect ratio for the best results
+3. Open the Icns Creator application
+4. Click the `Browse` button or drag & drop the image
+5. The `.iconset` tab creates a single icon file (1024x1024) and a folder containing PNG files required by Xcode (`Assets.xcassets/AppIcon.appiconset` folder). These PNGs automatically receive the same rounded corners, subtle shadow and padding used for Apple-style app icons
+6. The `.icns` tab creates individual .icns files in the previously selected sizes
+7. Rounded corners, shadow and padding are available on the `.icns` tab. For recent macOS design standards, you should enable the options you want to apply to the generated `.icns` variants
 8. The files will be created in the same directory as the original image file.
 
 ## Contribution
 
 Contributions to Icns Creator are welcome! If you would like to contribute to the project, please follow these steps:
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix (optional).
-3. Make your changes and commit them with descriptive commit messages.
-4. Do not delete commented codes please 😉.
-4. Push your changes to your forked repository.
+1. Fork the repository
+2. Create a new branch for your feature or bug fix (optional)
+3. Make your changes and commit them with descriptive commit messages
+4. Do not delete commented codes please 😉
+4. Push your changes to your forked repository
 5. Open a pull request in the main repository, explaining your changes and their benefits.
 
 ## License
