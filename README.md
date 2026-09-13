@@ -29,7 +29,7 @@ Some aspects of the project were not entirely to my liking, e.g. the README file
 These are the changes I've made in this fork:
 
 - App notarized by Apple
-- Modified README.md
+- Modified README.md and added README-ES.md
 - Add `AppDelegate` to quit the app when the window closes
 - Add localization System: English (default), German, French, Italian and Spanish with language selector
 - Succesfully checked on macOS Tahoe and Golden Gate
@@ -50,7 +50,7 @@ These are the changes I've made in this fork:
 ## Features
 
 - Simple and intuitive user interface.
-- Support for GIF, PNG, JPG, JPEG, TIFF and even PSD image file formats.
+- Support for PNG, JPG, JPEG, TIFF, HEIC and even PSD image file formats.
 - Automatic generation of icns files in variable sizes.
 - iconset folder and individual .icns file generation.
 - `.iconset` exports automatically apply Apple-style rounded corners, subtle shadow, and padding to every generated PNG.
@@ -124,8 +124,8 @@ If you have any questions, suggestions, or feedback, please feel free to use Iss
 ## To do
 
 - [x] ~~App release~~
-- [x] ~~Make it compatible with min macOS 11.0~~
-- [x] ~~Make it compatible with max macOS 26~~
+- [x] ~~Make it compatible with min macOS 13.0~~
+- [x] ~~Make it compatible with max macOS 27~~
 - [x] ~~Drag & drop design files onto the app window~~
 - [x] ~~Add feature to export icons with rounded-corners~~ 
 - [x] ~~Add feature to export icons with padding depending on Apple design standards~~
