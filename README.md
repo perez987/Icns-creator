@@ -8,7 +8,7 @@
 
 <p align="center">
 Download the app from <a href="https://github.com/perez987/Icns-creator/releases/latest">Releases</a><br>
-(Supports macOS 13 up to macOS26).<br>
+(Supports macOS 13 up to macOS27).<br>
 </p>
 
 |  | 
