@@ -14,7 +14,7 @@ struct LanguageItem: Identifiable {
     let flag: String
 
     init(code: String, name: String, flag: String) {
-        self.id = code
+        id = code
         self.code = code
         self.name = name
         self.flag = flag
@@ -29,15 +29,15 @@ struct LanguageSelectorView: View {
     private let initialLanguage: String
     private let softenedSelectionBlue = Color(red: 0.31, green: 0.53, blue: 0.94)
 
-    // Available languages sorted by code
+    /// Available languages sorted by code
     private let languages: [LanguageItem] = [
         LanguageItem(code: "de", name: "Deutsch", flag: "🇩🇪"),
         LanguageItem(code: "en", name: "English", flag: "🇬🇧"),
         LanguageItem(code: "es", name: "Español", flag: "🇪🇸"),
         LanguageItem(code: "fr", name: "Français", flag: "🇫🇷"),
-        LanguageItem(code: "it", name: "Italiano", flag: "🇮🇹")
+        LanguageItem(code: "it", name: "Italiano", flag: "🇮🇹"),
     ]
-    
+
     private var hasLanguageChanged: Bool {
         selectedLanguage != initialLanguage
     }
@@ -54,25 +54,25 @@ struct LanguageSelectorView: View {
 
     var body: some View {
         selectorCard
-        .onExitCommand {
-            if showRestartAlert {
-                showRestartAlert = false
-            } else {
-                dismiss()
+            .onExitCommand {
+                if showRestartAlert {
+                    showRestartAlert = false
+                } else {
+                    dismiss()
+                }
             }
-        }
-        .alert(
-            NSLocalizedString("language_changed_title", comment: "Language changed alert title"),
-            isPresented: $showRestartAlert
-        ) {
+            .alert(
+                NSLocalizedString("language_changed_title", comment: "Language changed alert title"),
+                isPresented: $showRestartAlert
+            ) {
 //            Button(NSLocalizedString("cancel", comment: "Cancel button"), role: .cancel) {}
-            Button(NSLocalizedString("ok", comment: "OK button")) {
-                dismiss()
+                Button(NSLocalizedString("ok", comment: "OK button")) {
+                    dismiss()
+                }
+                .keyboardShortcut(.defaultAction)
+            } message: {
+                Text(NSLocalizedString("language_changed_message", comment: "Language changed message"))
             }
-            .keyboardShortcut(.defaultAction)
-        } message: {
-            Text(NSLocalizedString("language_changed_message", comment: "Language changed message"))
-        }
     }
 
     private func saveLanguagePreference() {
@@ -104,7 +104,7 @@ private extension LanguageSelectorView {
                 colors: [
                     Color(nsColor: .windowBackgroundColor),
                     Color(red: 0.88, green: 0.93, blue: 1.0),
-                    Color(red: 0.97, green: 0.92, blue: 0.98)
+                    Color(red: 0.97, green: 0.92, blue: 0.98),
                 ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
@@ -124,7 +124,6 @@ private extension LanguageSelectorView {
                 .offset(x: 110, y: 120)
 
             VStack(spacing: 20) {
-
                 Text(NSLocalizedString("language_selector_title", comment: "Language selector title"))
                     .font(.title2.weight(.semibold))
                     .padding(.top)
@@ -182,7 +181,6 @@ private extension LanguageSelectorView {
             .tint(softenedSelectionBlue)
         }
         .frame(width: 360)
-
     }
 }
 

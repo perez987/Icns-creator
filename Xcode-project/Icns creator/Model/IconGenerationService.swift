@@ -75,7 +75,8 @@ private func validateGeneratedIconsetDimensions(iconsetPath: String) -> (isValid
         let fileURL = URL(fileURLWithPath: iconsetPath).appendingPathComponent(expected.name)
         guard let image = NSImage(contentsOf: fileURL),
               let tiffData = image.tiffRepresentation,
-              let bitmapRep = NSBitmapImageRep(data: tiffData) else {
+              let bitmapRep = NSBitmapImageRep(data: tiffData)
+        else {
             return (false, "Iconset validation failed: missing or unreadable \(expected.name).")
         }
 
