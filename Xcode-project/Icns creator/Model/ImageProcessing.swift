@@ -8,22 +8,26 @@
 import Cocoa
 import Foundation
 
-private func renderImageAtExactPixelSize(size: Int, drawing: (NSRect) -> Void) -> NSImage? {
+private func renderImageAtExactPixelSize(size: Int, drawing: (NSRect) -> Void)
+    -> NSImage?
+{
     guard size > 0 else { return nil }
 
     let targetRect = NSRect(x: 0, y: 0, width: size, height: size)
-    guard let bitmapRep = NSBitmapImageRep(
-        bitmapDataPlanes: nil,
-        pixelsWide: size,
-        pixelsHigh: size,
-        bitsPerSample: 8,
-        samplesPerPixel: 4,
-        hasAlpha: true,
-        isPlanar: false,
-        colorSpaceName: .deviceRGB,
-        bytesPerRow: 0,
-        bitsPerPixel: 0
-    ) else {
+    guard
+        let bitmapRep = NSBitmapImageRep(
+            bitmapDataPlanes: nil,
+            pixelsWide: size,
+            pixelsHigh: size,
+            bitsPerSample: 8,
+            samplesPerPixel: 4,
+            hasAlpha: true,
+            isPlanar: false,
+            colorSpaceName: .deviceRGB,
+            bytesPerRow: 0,
+            bitsPerPixel: 0
+        )
+    else {
         return nil
     }
 
@@ -47,12 +51,16 @@ private func renderImageAtExactPixelSize(size: Int, drawing: (NSRect) -> Void) -
 
 private func aspectFitRect(for image: NSImage, in bounds: NSRect) -> NSRect {
     let sourceSize = image.size
-    guard sourceSize.width > 0, sourceSize.height > 0, bounds.width > 0, bounds.height > 0 else {
+    guard sourceSize.width > 0, sourceSize.height > 0, bounds.width > 0,
+        bounds.height > 0
+    else {
         return bounds
     }
 
-    let scale = min(bounds.width / sourceSize.width, bounds.height / sourceSize.height)
-    let fittedSize = NSSize(width: sourceSize.width * scale, height: sourceSize.height * scale)
+    let scale = min(
+        bounds.width / sourceSize.width, bounds.height / sourceSize.height)
+    let fittedSize = NSSize(
+        width: sourceSize.width * scale, height: sourceSize.height * scale)
 
     return NSRect(
         x: bounds.midX - (fittedSize.width / 2),
@@ -63,11 +71,15 @@ private func aspectFitRect(for image: NSImage, in bounds: NSRect) -> NSRect {
 }
 
 private func drawImageAspectFit(_ image: NSImage, in bounds: NSRect) {
-    image.draw(in: aspectFitRect(for: image, in: bounds), from: .zero, operation: .sourceOver, fraction: 1.0)
+    image.draw(
+        in: aspectFitRect(for: image, in: bounds), from: .zero,
+        operation: .sourceOver, fraction: 1.0)
 }
 
 func createIconsetImage(from path: String, size: Int) -> NSImage? {
-    guard let image = NSImage(contentsOfFile: path), size > 0 else { return nil }
+    guard let image = NSImage(contentsOfFile: path), size > 0 else {
+        return nil
+    }
 
     return renderImageAtExactPixelSize(size: size) { targetRect in
         NSColor.clear.setFill()
@@ -79,7 +91,10 @@ func createIconsetImage(from path: String, size: Int) -> NSImage? {
 /// -------------------------------------------------------------------------------------------------
 /// CREATE ROUNDED CORNERS
 /// -------------------------------------------------------------------------------------------------
-func createRoundedImage(from path: String, size: Int, _isRoundCornersEnabled: Bool, _enableShadow: Bool, _enablePadding: Bool, g _: GlobalVariables) -> NSImage? {
+func createRoundedImage(
+    from path: String, size: Int, _isRoundCornersEnabled: Bool,
+    _enableShadow: Bool, _enablePadding: Bool, g _: GlobalVariables
+) -> NSImage? {
     guard let image = NSImage(contentsOfFile: path) else { return nil }
     // let image = loadImage(named: path)
 
@@ -100,7 +115,7 @@ func createRoundedImage(from path: String, size: Int, _isRoundCornersEnabled: Bo
         case 64: scaledSize = 52
         case 32: scaledSize = 28
         case 16: scaledSize = 14
-        default: scaledSize = size // Fallback to original size if not specified
+        default: scaledSize = size  // Fallback to original size if not specified
         }
     } else {
         scaledSize = size
@@ -113,7 +128,8 @@ func createRoundedImage(from path: String, size: Int, _isRoundCornersEnabled: Bo
     if _isRoundCornersEnabled {
         radiusVal = 0.225 * Double(scaledSize)
     }
-    let bezierPath = NSBezierPath(roundedRect: targetRect, xRadius: radiusVal, yRadius: radiusVal)
+    let bezierPath = NSBezierPath(
+        roundedRect: targetRect, xRadius: radiusVal, yRadius: radiusVal)
 
     return renderImageAtExactPixelSize(size: size) { _ in
         NSColor.clear.setFill()
@@ -125,7 +141,8 @@ func createRoundedImage(from path: String, size: Int, _isRoundCornersEnabled: Bo
         // Calculate the origin to center the scaled-down image
         let xOffset = (size - scaledSize) / 2
         let yOffset = (size - scaledSize) / 2
-        let scaledRect = NSRect(x: xOffset, y: yOffset, width: scaledSize, height: scaledSize)
+        let scaledRect = NSRect(
+            x: xOffset, y: yOffset, width: scaledSize, height: scaledSize)
 
         if _enableShadow {
             let shadow = NSShadow()
@@ -136,13 +153,15 @@ func createRoundedImage(from path: String, size: Int, _isRoundCornersEnabled: Bo
             shadow.set()
         }
 
-        let scaledBezierPath = NSBezierPath(roundedRect: scaledRect, xRadius: radiusVal, yRadius: radiusVal)
+        let scaledBezierPath = NSBezierPath(
+            roundedRect: scaledRect, xRadius: radiusVal, yRadius: radiusVal)
 
         if _isRoundCornersEnabled {
             scaledBezierPath.addClip()
         }
 
-        image.draw(in: scaledRect, from: .zero, operation: .sourceOver, fraction: 1.0)
+        image.draw(
+            in: scaledRect, from: .zero, operation: .sourceOver, fraction: 1.0)
     }
 }
 
@@ -158,7 +177,7 @@ func loadImage(named imageName: String) -> NSImage? {
         return image
     }
 
-    return nil // Return nil if the image could not be loaded
+    return nil  // Return nil if the image could not be loaded
 }
 
 extension NSBitmapImageRep {

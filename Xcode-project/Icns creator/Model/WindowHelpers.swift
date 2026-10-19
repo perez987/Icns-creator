@@ -14,7 +14,9 @@ func resizeWindow(g _: GlobalVariables, to size: CGSize) {
     // print("Resizing window to \(size)")
 
     // Use keyWindow to target the currently active window, or fall back to first window
-    if let window = NSApplication.shared.keyWindow ?? NSApplication.shared.windows.first {
+    if let window = NSApplication.shared.keyWindow
+        ?? NSApplication.shared.windows.first
+    {
         window.setContentSize(size)
         // Optionally, you can also center the window
         // window.center()

@@ -30,7 +30,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     /// Called when the last window is closed to determine if the app should terminate
-    func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool {
+    func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication)
+        -> Bool
+    {
         return true
     }
 }
@@ -63,13 +65,14 @@ class GlobalVariables: ObservableObject {
     @Published var win = WindowSize()
 
     // Options
-    @Published var enableRoundedCorners: Bool = true // Toggle state
-    @Published var enableIconShadow: Bool = true // Toggle state
-    @Published var enablePadding: Bool = true // Toggle state
+    @Published var enableRoundedCorners: Bool = true  // Toggle state
+    @Published var enableIconShadow: Bool = true  // Toggle state
+    @Published var enablePadding: Bool = true  // Toggle state
 
     // Color Selection
-    @Published var selectedBackgroundColor: NSColor = .init(white: 1.0, alpha: 1.0) // Default: white, transparent
-    @Published var colorOption: String = "custom" // "blue", "graphite", "purple", or "custom"
+    @Published var selectedBackgroundColor: NSColor = .init(
+        white: 1.0, alpha: 1.0)  // Default: white, transparent
+    @Published var colorOption: String = "custom"  // "blue", "graphite", "purple", or "custom"
 
     // Destination Path
     @Published var destinationPath = ""
@@ -125,24 +128,32 @@ struct FixedWindowConfigurator: NSViewRepresentable {
 
     func updateNSView(_ nsView: NSView, context: Context) {
         DispatchQueue.main.async {
-            applyFixedWindowStyle(from: nsView, coordinator: context.coordinator)
+            applyFixedWindowStyle(
+                from: nsView, coordinator: context.coordinator)
         }
     }
 
-    private func applyFixedWindowStyle(from view: NSView, coordinator: Coordinator) {
+    private func applyFixedWindowStyle(
+        from view: NSView, coordinator: Coordinator
+    ) {
         guard let window = view.window else { return }
 
         if !coordinator.didApplyFixedFrame {
-            let currentTopLeft = NSPoint(x: window.frame.minX, y: window.frame.maxY)
+            let currentTopLeft = NSPoint(
+                x: window.frame.minX, y: window.frame.maxY)
             var fixedFrame = window.frame
-            fixedFrame.size = CGSize(width: kDefaultWindowWidth, height: kDefaultWindowHeight)
+            fixedFrame.size = CGSize(
+                width: kDefaultWindowWidth, height: kDefaultWindowHeight)
             fixedFrame.origin.y = currentTopLeft.y - kDefaultWindowHeight
             window.setFrame(fixedFrame, display: true)
             coordinator.didApplyFixedFrame = true
         }
 
         window.collectionBehavior = window.collectionBehavior
-            .subtracting([.fullScreenPrimary, .fullScreenAuxiliary, .fullScreenAllowsTiling])
+            .subtracting([
+                .fullScreenPrimary, .fullScreenAuxiliary,
+                .fullScreenAllowsTiling,
+            ])
             .union([.fullScreenNone])
         window.tabbingMode = .disallowed
         window.standardWindowButton(.zoomButton)?.isEnabled = false
@@ -162,14 +173,22 @@ struct icns_creatorApp: App {
                     LanguageSelectorView()
                 }
         }
-        .defaultWindowSize(CGSize(width: kDefaultWindowWidth, height: kDefaultWindowHeight))
+        .defaultWindowSize(
+            CGSize(width: kDefaultWindowWidth, height: kDefaultWindowHeight)
+        )
         // .defaultPosition(.center)
         .windowResizabilityContentSize()
         .windowStyle(HiddenTitleBarWindowStyle())
         // Language menu
         .commands {
-            CommandMenu(NSLocalizedString("menu_language", comment: "Language menu")) {
-                Button(NSLocalizedString("menu_select_language", comment: "Select Language menu item")) {
+            CommandMenu(
+                NSLocalizedString("menu_language", comment: "Language menu")
+            ) {
+                Button(
+                    NSLocalizedString(
+                        "menu_select_language",
+                        comment: "Select Language menu item")
+                ) {
                     isLanguageSelectorPresented = true
                 }
                 .keyboardShortcut("l", modifiers: .command)

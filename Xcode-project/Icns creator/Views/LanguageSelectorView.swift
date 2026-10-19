@@ -27,7 +27,8 @@ struct LanguageSelectorView: View {
     @State private var selectedLanguage: String
     @State private var showRestartAlert = false
     private let initialLanguage: String
-    private let softenedSelectionBlue = Color(red: 0.31, green: 0.53, blue: 0.94)
+    private let softenedSelectionBlue = Color(
+        red: 0.31, green: 0.53, blue: 0.94)
 
     /// Available languages sorted by code
     private let languages: [LanguageItem] = [
@@ -44,7 +45,8 @@ struct LanguageSelectorView: View {
 
     init() {
         // Load current language preference
-        let currentLang = UserDefaults.standard.stringArray(forKey: "AppleLanguages")?
+        let currentLang =
+            UserDefaults.standard.stringArray(forKey: "AppleLanguages")?
             .first?.components(separatedBy: "-").first
             ?? Locale.current.language.languageCode?.identifier
             ?? "en"
@@ -62,16 +64,21 @@ struct LanguageSelectorView: View {
                 }
             }
             .alert(
-                NSLocalizedString("language_changed_title", comment: "Language changed alert title"),
+                NSLocalizedString(
+                    "language_changed_title",
+                    comment: "Language changed alert title"),
                 isPresented: $showRestartAlert
             ) {
-//            Button(NSLocalizedString("cancel", comment: "Cancel button"), role: .cancel) {}
+                //            Button(NSLocalizedString("cancel", comment: "Cancel button"), role: .cancel) {}
                 Button(NSLocalizedString("ok", comment: "OK button")) {
                     dismiss()
                 }
                 .keyboardShortcut(.defaultAction)
             } message: {
-                Text(NSLocalizedString("language_changed_message", comment: "Language changed message"))
+                Text(
+                    NSLocalizedString(
+                        "language_changed_message",
+                        comment: "Language changed message"))
             }
     }
 
@@ -93,12 +100,13 @@ struct LanguageSelectorView: View {
         if selectedLanguage == code {
             return .white
         }
-        return colorScheme == .dark ? Color.black.opacity(0.85) : Color(nsColor: .labelColor)
+        return colorScheme == .dark
+            ? Color.black.opacity(0.85) : Color(nsColor: .labelColor)
     }
 }
 
-private extension LanguageSelectorView {
-    var selectorCard: some View {
+extension LanguageSelectorView {
+    fileprivate var selectorCard: some View {
         ZStack {
             LinearGradient(
                 colors: [
@@ -124,9 +132,13 @@ private extension LanguageSelectorView {
                 .offset(x: 110, y: 120)
 
             VStack(spacing: 20) {
-                Text(NSLocalizedString("language_selector_title", comment: "Language selector title"))
-                    .font(.title2.weight(.semibold))
-                    .padding(.top)
+                Text(
+                    NSLocalizedString(
+                        "language_selector_title",
+                        comment: "Language selector title")
+                )
+                .font(.title2.weight(.semibold))
+                .padding(.top)
 
                 List(languages, selection: $selectedLanguage) { language in
                     HStack {
@@ -142,7 +154,10 @@ private extension LanguageSelectorView {
                 .frame(width: 222, height: 208)
                 .scrollContentBackground(.hidden)
                 .listStyle(.inset)
-                .background(Color.white.opacity(0.6), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .background(
+                    Color.white.opacity(0.6),
+                    in: RoundedRectangle(cornerRadius: 14, style: .continuous)
+                )
                 .overlay(
                     RoundedRectangle(cornerRadius: 14, style: .continuous)
                         .strokeBorder(Color.white.opacity(0.5), lineWidth: 1)
@@ -151,7 +166,9 @@ private extension LanguageSelectorView {
                 HStack(spacing: 12) {
                     Spacer()
 
-                    Button(NSLocalizedString("cancel", comment: "Cancel button")) {
+                    Button(
+                        NSLocalizedString("cancel", comment: "Cancel button")
+                    ) {
                         dismiss()
                     }
                     .keyboardShortcut(.cancelAction)
@@ -159,7 +176,9 @@ private extension LanguageSelectorView {
 
                     Spacer()
 
-                    Button(NSLocalizedString("accept", comment: "Accept button")) {
+                    Button(
+                        NSLocalizedString("accept", comment: "Accept button")
+                    ) {
                         confirmSelection()
                     }
                     .keyboardShortcut(.defaultAction)
@@ -172,7 +191,10 @@ private extension LanguageSelectorView {
             }
             .padding()
             .frame(width: 300)
-            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
+            .background(
+                .ultraThinMaterial,
+                in: RoundedRectangle(cornerRadius: 26, style: .continuous)
+            )
             .overlay(
                 RoundedRectangle(cornerRadius: 26, style: .continuous)
                     .strokeBorder(Color.white.opacity(0.55), lineWidth: 1)

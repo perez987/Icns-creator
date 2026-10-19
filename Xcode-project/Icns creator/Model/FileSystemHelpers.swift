@@ -9,7 +9,10 @@ import Cocoa
 import Foundation
 
 extension NSOpenPanel {
-    static func openImage(completion: @escaping (_ result: Result<NSImage, Error>, _ url: URL?) -> Void) {
+    static func openImage(
+        completion: @escaping (_ result: Result<NSImage, Error>, _ url: URL?) ->
+            Void
+    ) {
         let panel = NSOpenPanel()
         panel.allowsMultipleSelection = false
         panel.canChooseFiles = true
@@ -20,11 +23,20 @@ extension NSOpenPanel {
             panel.allowedFileTypes = ["jpg", "jpeg", "png", "gif", "psd"]
         }
         panel.begin { result in
-            if result == .OK, let url = panel.urls.first, let image = NSImage(contentsOf: url) {
+            if result == .OK, let url = panel.urls.first,
+                let image = NSImage(contentsOf: url)
+            {
                 completion(.success(image), url)
                 // self.imagepa
             } else {
-                completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("failed_to_get_location", comment: "")])), nil)
+                completion(
+                    .failure(
+                        NSError(
+                            domain: "", code: 0,
+                            userInfo: [
+                                NSLocalizedDescriptionKey: NSLocalizedString(
+                                    "failed_to_get_location", comment: "")
+                            ])), nil)
             }
         }
     }
@@ -43,10 +55,11 @@ func selectFileFromSystem(g: GlobalVariables) {
 
     openPanel.begin { result in
         if result == .OK, let url = openPanel.url {
-            if let image = NSImage(contentsOf: url) { // Load the image properly
+            if let image = NSImage(contentsOf: url) {  // Load the image properly
                 g.selectedImage = image
                 g.imagePath = url.path
-                g.selectedImageName = url.deletingPathExtension().lastPathComponent
+                g.selectedImageName =
+                    url.deletingPathExtension().lastPathComponent
             } else {
                 print("Failed to load image.")
             }
@@ -61,11 +74,12 @@ func createOpenPanel(defaultDirectory: URL? = nil) -> NSOpenPanel {
     openPanel.canChooseDirectories = true
     openPanel.allowsMultipleSelection = false
     openPanel.title = NSLocalizedString("choose_destination_title", comment: "")
-    openPanel.message = NSLocalizedString("choose_destination_message", comment: "")
+    openPanel.message = NSLocalizedString(
+        "choose_destination_message", comment: "")
     openPanel.prompt = NSLocalizedString("choose_button", comment: "")
 
     if let defaultDirectory = defaultDirectory {
-        openPanel.directoryURL = defaultDirectory // Set default directory
+        openPanel.directoryURL = defaultDirectory  // Set default directory
     }
 
     return openPanel

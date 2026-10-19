@@ -114,7 +114,10 @@ struct HeaderCard: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 14)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 28, style: .continuous))
+        .background(
+            .ultraThinMaterial,
+            in: RoundedRectangle(cornerRadius: 28, style: .continuous)
+        )
         .overlay(
             RoundedRectangle(cornerRadius: 28, style: .continuous)
                 .strokeBorder(Color.white.opacity(0.5), lineWidth: 1)
@@ -158,8 +161,12 @@ struct PreviewDropCard: View {
 
                     RoundedRectangle(cornerRadius: 34, style: .continuous)
                         .strokeBorder(
-                            g.dragOver ? Color.blue.opacity(0.8) : Color.white.opacity(0.45),
-                            style: StrokeStyle(lineWidth: g.dragOver ? 3 : 1.5, dash: hasImage ? [] : [10])
+                            g.dragOver
+                                ? Color.blue.opacity(0.8)
+                                : Color.white.opacity(0.45),
+                            style: StrokeStyle(
+                                lineWidth: g.dragOver ? 3 : 1.5,
+                                dash: hasImage ? [] : [10])
                         )
 
                     if hasImage, let image = g.selectedImage {
@@ -170,16 +177,32 @@ struct PreviewDropCard: View {
                             .padding(22)
                     }
                 }
-                .frame(minHeight: hasImage ? 290 : 270, maxHeight: previewCardMaxHeight)
+                .frame(
+                    minHeight: hasImage ? 290 : 270,
+                    maxHeight: previewCardMaxHeight)
             }
             .buttonStyle(.plain)
-            .contentShape(RoundedRectangle(cornerRadius: 34, style: .continuous))
-            .onDrop(of: [UTType.fileURL.identifier], isTargeted: Binding(get: { g.dragOver }, set: { g.dragOver = $0 })) { providers in
+            .contentShape(
+                RoundedRectangle(cornerRadius: 34, style: .continuous)
+            )
+            .onDrop(
+                of: [UTType.fileURL.identifier],
+                isTargeted: Binding(
+                    get: { g.dragOver }, set: { g.dragOver = $0 })
+            ) { providers in
                 handleDrop(providers: providers)
             }
-            .accessibilityLabel(Text(NSLocalizedString("browse_artwork_label", comment: "")))
-            .accessibilityHint(Text(NSLocalizedString("drop_artwork_hint", comment: "")))
-            .accessibilityValue(Text(NSLocalizedString(hasImage ? "selected_state" : "not_selected_state", comment: "")))
+            .accessibilityLabel(
+                Text(NSLocalizedString("browse_artwork_label", comment: ""))
+            )
+            .accessibilityHint(
+                Text(NSLocalizedString("drop_artwork_hint", comment: ""))
+            )
+            .accessibilityValue(
+                Text(
+                    NSLocalizedString(
+                        hasImage ? "selected_state" : "not_selected_state",
+                        comment: "")))
 
             HStack(spacing: 6) {
                 Text(NSLocalizedString("drag_image_text", comment: ""))
@@ -194,17 +217,20 @@ struct PreviewDropCard: View {
             }
             .font(.title3)
 
-//            if hasImage {
-//                Text(g.selectedImageName)
-//                    .font(.body.weight(.medium))
-//                    .foregroundStyle(.secondary)
-//                    .lineLimit(1)
-//                    .truncationMode(.middle)
-//            }
+            //            if hasImage {
+            //                Text(g.selectedImageName)
+            //                    .font(.body.weight(.medium))
+            //                    .foregroundStyle(.secondary)
+            //                    .lineLimit(1)
+            //                    .truncationMode(.middle)
+            //            }
         }
         .padding(.horizontal, 18)
         .padding(.vertical, 18)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 32, style: .continuous))
+        .background(
+            .ultraThinMaterial,
+            in: RoundedRectangle(cornerRadius: 32, style: .continuous)
+        )
         .overlay(
             RoundedRectangle(cornerRadius: 32, style: .continuous)
                 .strokeBorder(Color.white.opacity(0.5), lineWidth: 1)
@@ -213,21 +239,28 @@ struct PreviewDropCard: View {
     }
 
     private func handleDrop(providers: [NSItemProvider]) -> Bool {
-        guard let provider = providers.first(where: { $0.hasItemConformingToTypeIdentifier(UTType.fileURL.identifier) }) else {
+        guard
+            let provider = providers.first(where: {
+                $0.hasItemConformingToTypeIdentifier(UTType.fileURL.identifier)
+            })
+        else {
             return false
         }
 
-        provider.loadDataRepresentation(forTypeIdentifier: UTType.fileURL.identifier) { data, _ in
+        provider.loadDataRepresentation(
+            forTypeIdentifier: UTType.fileURL.identifier
+        ) { data, _ in
             guard let imageData = data,
-                  let url = URL(dataRepresentation: imageData, relativeTo: nil),
-                  let image = NSImage(contentsOf: url)
+                let url = URL(dataRepresentation: imageData, relativeTo: nil),
+                let image = NSImage(contentsOf: url)
             else {
                 return
             }
 
             DispatchQueue.main.async {
                 g.imagePath = url.path
-                g.selectedImageName = url.deletingPathExtension().lastPathComponent
+                g.selectedImageName =
+                    url.deletingPathExtension().lastPathComponent
                 g.selectedImage = image
             }
         }
@@ -250,7 +283,9 @@ struct PlaceholderStage: View {
 
             VStack(spacing: 8) {
                 Text(NSLocalizedString("drop_artwork_title", comment: ""))
-                    .font(.system(size: 20, weight: .semibold, design: .rounded))
+                    .font(
+                        .system(size: 20, weight: .semibold, design: .rounded)
+                    )
                     .foregroundStyle(.primary)
                 Text(NSLocalizedString("drop_artwork_subtitle", comment: ""))
                     .font(.body)
@@ -288,29 +323,39 @@ struct IcnsOptionsCard: View {
                 .font(.system(size: 24, weight: .semibold, design: .rounded))
                 .foregroundStyle(.primary)
 
-            OptionToggleRow(title: NSLocalizedString("enable_rounded_corners", comment: ""), isOn: $g.enableRoundedCorners)
-            OptionToggleRow(title: NSLocalizedString("enable_subtle_shadow", comment: ""), isOn: $g.enableIconShadow)
-            OptionToggleRow(title: NSLocalizedString("enable_original_padding", comment: ""), isOn: $g.enablePadding)
+            OptionToggleRow(
+                title: NSLocalizedString("enable_rounded_corners", comment: ""),
+                isOn: $g.enableRoundedCorners)
+            OptionToggleRow(
+                title: NSLocalizedString("enable_subtle_shadow", comment: ""),
+                isOn: $g.enableIconShadow)
+            OptionToggleRow(
+                title: NSLocalizedString(
+                    "enable_original_padding", comment: ""),
+                isOn: $g.enablePadding)
 
-//            HStack(spacing: 16) {
-//                Text(NSLocalizedString("set_background_color", comment: ""))
-//                    .font(.title3)
-//                    .foregroundStyle(.secondary)
-//                Spacer()
-//                ColorPicker("", selection: Binding(
-//                    get: { Color(g.selectedBackgroundColor) },
-//                    set: { newColor in
-//                        g.colorOption = "custom"
-//                        g.selectedBackgroundColor = NSColor(newColor)
-//                    }
-//                ))
-//                .labelsHidden()
-//                .frame(width: 34, height: 34)
-//            }
+            //            HStack(spacing: 16) {
+            //                Text(NSLocalizedString("set_background_color", comment: ""))
+            //                    .font(.title3)
+            //                    .foregroundStyle(.secondary)
+            //                Spacer()
+            //                ColorPicker("", selection: Binding(
+            //                    get: { Color(g.selectedBackgroundColor) },
+            //                    set: { newColor in
+            //                        g.colorOption = "custom"
+            //                        g.selectedBackgroundColor = NSColor(newColor)
+            //                    }
+            //                ))
+            //                .labelsHidden()
+            //                .frame(width: 34, height: 34)
+            //            }
         }
         .padding(18)
         .foregroundStyle(.primary)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 32, style: .continuous))
+        .background(
+            .ultraThinMaterial,
+            in: RoundedRectangle(cornerRadius: 32, style: .continuous)
+        )
         .overlay(
             RoundedRectangle(cornerRadius: 32, style: .continuous)
                 .strokeBorder(Color.white.opacity(0.5), lineWidth: 1)
@@ -343,7 +388,8 @@ struct GenerateView_ICONSET: View {
     var body: some View {
         ActionCard {
             Button(NSLocalizedString("generate_iconset", comment: "")) {
-                let openPanel = createOpenPanel(defaultDirectory: g.defaultSaveDirectory)
+                let openPanel = createOpenPanel(
+                    defaultDirectory: g.defaultSaveDirectory)
                 openPanel.begin { response in
                     if response == .OK, let selectedDirectory = openPanel.url {
                         g.destinationPath = selectedDirectory.path
@@ -362,46 +408,82 @@ struct GenerateView_ICNS: View {
     @EnvironmentObject var g: GlobalVariables
 
     private let columns = [
-        GridItem(.adaptive(minimum: 116), spacing: 10),
+        GridItem(.adaptive(minimum: 116), spacing: 10)
     ]
 
     private var allTogglesOff: Bool {
-        !g.isToggled_16 && !g.isToggled_32 && !g.isToggled_64 && !g.isToggled_128 && !g.isToggled_256 && !g.isToggled_512 && !g.isToggled_1024
+        !g.isToggled_16 && !g.isToggled_32 && !g.isToggled_64
+            && !g.isToggled_128 && !g.isToggled_256 && !g.isToggled_512
+            && !g.isToggled_1024
     }
 
     private var allSizesSelected: Bool {
-        g.isToggled_16 && g.isToggled_32 && g.isToggled_64 && g.isToggled_128 && g.isToggled_256 && g.isToggled_512 && g.isToggled_1024
+        g.isToggled_16 && g.isToggled_32 && g.isToggled_64 && g.isToggled_128
+            && g.isToggled_256 && g.isToggled_512 && g.isToggled_1024
     }
 
     var body: some View {
         ActionCard {
             VStack(alignment: .leading, spacing: 18) {
                 LazyVGrid(columns: columns, alignment: .leading, spacing: 12) {
-                    SizeSelectionChip(title: NSLocalizedString("all", comment: ""), isOn: Binding(
-                        get: { allSizesSelected },
-                        set: { setAllSizes($0) }
-                    ))
-                    SizeSelectionChip(title: NSLocalizedString("size_16", comment: ""), isOn: sizeBinding(\.isToggled_16))
-                    SizeSelectionChip(title: NSLocalizedString("size_32", comment: ""), isOn: sizeBinding(\.isToggled_32))
-                    SizeSelectionChip(title: NSLocalizedString("size_64", comment: ""), isOn: sizeBinding(\.isToggled_64))
-                    SizeSelectionChip(title: NSLocalizedString("size_128", comment: ""), isOn: sizeBinding(\.isToggled_128))
-                    SizeSelectionChip(title: NSLocalizedString("size_256", comment: ""), isOn: sizeBinding(\.isToggled_256))
-                    SizeSelectionChip(title: NSLocalizedString("size_512", comment: ""), isOn: sizeBinding(\.isToggled_512))
-                    SizeSelectionChip(title: NSLocalizedString("size_1024", comment: ""), isOn: sizeBinding(\.isToggled_1024))
+                    SizeSelectionChip(
+                        title: NSLocalizedString("all", comment: ""),
+                        isOn: Binding(
+                            get: { allSizesSelected },
+                            set: { setAllSizes($0) }
+                        ))
+                    SizeSelectionChip(
+                        title: NSLocalizedString("size_16", comment: ""),
+                        isOn: sizeBinding(\.isToggled_16))
+                    SizeSelectionChip(
+                        title: NSLocalizedString("size_32", comment: ""),
+                        isOn: sizeBinding(\.isToggled_32))
+                    SizeSelectionChip(
+                        title: NSLocalizedString("size_64", comment: ""),
+                        isOn: sizeBinding(\.isToggled_64))
+                    SizeSelectionChip(
+                        title: NSLocalizedString("size_128", comment: ""),
+                        isOn: sizeBinding(\.isToggled_128))
+                    SizeSelectionChip(
+                        title: NSLocalizedString("size_256", comment: ""),
+                        isOn: sizeBinding(\.isToggled_256))
+                    SizeSelectionChip(
+                        title: NSLocalizedString("size_512", comment: ""),
+                        isOn: sizeBinding(\.isToggled_512))
+                    SizeSelectionChip(
+                        title: NSLocalizedString("size_1024", comment: ""),
+                        isOn: sizeBinding(\.isToggled_1024))
                 }
 
                 Button(NSLocalizedString("generate_icns", comment: "")) {
-                    let openPanel = createOpenPanel(defaultDirectory: g.defaultSaveDirectory)
+                    let openPanel = createOpenPanel(
+                        defaultDirectory: g.defaultSaveDirectory)
                     openPanel.begin { response in
-                        if response == .OK, let selectedDirectory = openPanel.url {
+                        if response == .OK,
+                            let selectedDirectory = openPanel.url
+                        {
                             g.destinationPath = selectedDirectory.path
-                            if g.isToggled_16 { runShellCommand2(res: 16, g: g) }
-                            if g.isToggled_32 { runShellCommand2(res: 32, g: g) }
-                            if g.isToggled_64 { runShellCommand2(res: 64, g: g) }
-                            if g.isToggled_128 { runShellCommand2(res: 128, g: g) }
-                            if g.isToggled_256 { runShellCommand2(res: 256, g: g) }
-                            if g.isToggled_512 { runShellCommand2(res: 512, g: g) }
-                            if g.isToggled_1024 { runShellCommand2(res: 1024, g: g) }
+                            if g.isToggled_16 {
+                                runShellCommand2(res: 16, g: g)
+                            }
+                            if g.isToggled_32 {
+                                runShellCommand2(res: 32, g: g)
+                            }
+                            if g.isToggled_64 {
+                                runShellCommand2(res: 64, g: g)
+                            }
+                            if g.isToggled_128 {
+                                runShellCommand2(res: 128, g: g)
+                            }
+                            if g.isToggled_256 {
+                                runShellCommand2(res: 256, g: g)
+                            }
+                            if g.isToggled_512 {
+                                runShellCommand2(res: 512, g: g)
+                            }
+                            if g.isToggled_1024 {
+                                runShellCommand2(res: 1024, g: g)
+                            }
                         }
                     }
                 }
@@ -411,7 +493,9 @@ struct GenerateView_ICNS: View {
         }
     }
 
-    private func sizeBinding(_ keyPath: ReferenceWritableKeyPath<GlobalVariables, Bool>) -> Binding<Bool> {
+    private func sizeBinding(
+        _ keyPath: ReferenceWritableKeyPath<GlobalVariables, Bool>
+    ) -> Binding<Bool> {
         Binding(
             get: { g[keyPath: keyPath] },
             set: { newValue in
@@ -439,7 +523,10 @@ struct ActionCard<Content: View>: View {
             content
         }
         .padding(18)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 32, style: .continuous))
+        .background(
+            .ultraThinMaterial,
+            in: RoundedRectangle(cornerRadius: 32, style: .continuous)
+        )
         .overlay(
             RoundedRectangle(cornerRadius: 32, style: .continuous)
                 .strokeBorder(Color.white.opacity(0.5), lineWidth: 1)
@@ -457,7 +544,11 @@ struct SizeSelectionChip: View {
             Text(title)
         }
         .toggleStyle(ChipToggleStyle())
-        .accessibilityValue(Text(NSLocalizedString(isOn ? "selected_state" : "not_selected_state", comment: "")))
+        .accessibilityValue(
+            Text(
+                NSLocalizedString(
+                    isOn ? "selected_state" : "not_selected_state", comment: "")
+            ))
     }
 }
 
@@ -465,7 +556,8 @@ struct ChipToggleStyle: ToggleStyle {
     @Environment(\.colorScheme) private var colorScheme
 
     private var unselectedForegroundColor: Color {
-        colorScheme == .dark ? Color.black.opacity(0.85) : Color(nsColor: .labelColor)
+        colorScheme == .dark
+            ? Color.black.opacity(0.85) : Color(nsColor: .labelColor)
     }
 
     func makeBody(configuration: Configuration) -> some View {
@@ -473,11 +565,18 @@ struct ChipToggleStyle: ToggleStyle {
             configuration.isOn.toggle()
         } label: {
             HStack(spacing: 10) {
-                Image(systemName: configuration.isOn ? "checkmark.circle.fill" : "circle")
-                    .foregroundStyle(configuration.isOn ? Color.white : unselectedForegroundColor)
+                Image(
+                    systemName: configuration.isOn
+                        ? "checkmark.circle.fill" : "circle"
+                )
+                .foregroundStyle(
+                    configuration.isOn ? Color.white : unselectedForegroundColor
+                )
                 configuration.label
                     .font(.system(size: 14, weight: .medium, design: .rounded))
-                    .foregroundStyle(configuration.isOn ? Color.white : unselectedForegroundColor)
+                    .foregroundStyle(
+                        configuration.isOn
+                            ? Color.white : unselectedForegroundColor)
                 Spacer(minLength: 0)
             }
             .padding(.horizontal, 16)
@@ -485,15 +584,25 @@ struct ChipToggleStyle: ToggleStyle {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(configuration.isOn ? Color.blue : Color.white.opacity(0.5))
+                    .fill(
+                        configuration.isOn
+                            ? Color.blue : Color.white.opacity(0.5))
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .strokeBorder(configuration.isOn ? Color.blue.opacity(0.9) : Color.white.opacity(0.65), lineWidth: 1)
+                    .strokeBorder(
+                        configuration.isOn
+                            ? Color.blue.opacity(0.9)
+                            : Color.white.opacity(0.65), lineWidth: 1)
             )
         }
         .buttonStyle(.plain)
-        .accessibilityValue(Text(NSLocalizedString(configuration.isOn ? "selected_state" : "not_selected_state", comment: "")))
+        .accessibilityValue(
+            Text(
+                NSLocalizedString(
+                    configuration.isOn
+                        ? "selected_state" : "not_selected_state", comment: ""))
+        )
         .accessibilityAddTraits(configuration.isOn ? .isSelected : [])
     }
 }
@@ -511,7 +620,12 @@ struct PrimaryActionButtonStyle: ButtonStyle {
                     .fill(buttonBackground(isPressed: configuration.isPressed))
             )
             .foregroundStyle(isEnabled ? .white : .white.opacity(0.75))
-            .shadow(color: Color.blue.opacity(isEnabled ? (configuration.isPressed ? 0.12 : 0.22) : 0.08), radius: isEnabled ? (configuration.isPressed ? 8 : 16) : 8, y: isEnabled ? (configuration.isPressed ? 4 : 10) : 4)
+            .shadow(
+                color: Color.blue.opacity(
+                    isEnabled ? (configuration.isPressed ? 0.12 : 0.22) : 0.08),
+                radius: isEnabled ? (configuration.isPressed ? 8 : 16) : 8,
+                y: isEnabled ? (configuration.isPressed ? 4 : 10) : 4
+            )
             .opacity(isEnabled ? 1 : 0.7)
             .scaleEffect(isEnabled && configuration.isPressed ? 0.99 : 1)
             .animation(.easeOut(duration: 0.16), value: configuration.isPressed)
